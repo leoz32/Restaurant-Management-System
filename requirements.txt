@@ -1,0 +1,5 @@
+Flask
+Flask-Caching
+pyodbc
+pandas
+numpy
