@@ -21,7 +21,7 @@ This is a Restaurant Management Information System (MIS) web application develop
     *   Seasonal Sales Analysis
     *   Food Waste Analysis
 *   **Data Prediction:** Simple prediction of sales and customer numbers based on historical data.
-*   **Data Management:** (Seems to have a data management page, specific functions need further code review)
+*   **Data Management:** 
 
 ## Technology Stack
 
