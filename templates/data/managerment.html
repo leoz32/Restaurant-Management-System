@@ -1,0 +1,172 @@
+{% extends "layout.html" %}
+
+{% block title %}Data Management{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Data Management</h2>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Data Cache Status</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-sm">
+                        <tr>
+                            <th>Data Type</th>
+                            <th>Record Count</th>
+                        </tr>
+                        <tr>
+                            <td>Customers</td>
+                            <td>{{ status.customers }}</td>
+                        </tr>
+                        <tr>
+                            <td>Menu Items</td>
+                            <td>{{ status.menu_items }}</td>
+                        </tr>
+                        <tr>
+                            <td>Orders</td>
+                            <td>{{ status.orders }}</td>
+                        </tr>
+                        <tr>
+                            <td>Inventory</td>
+                            <td>{{ status.inventory }}</td>
+                        </tr>
+                        <tr>
+                            <td>Staff</td>
+                            <td>{{ status.staff }}</td>
+                        </tr>
+                        <tr>
+                            <td>Suppliers</td>
+                            <td>{{ status.suppliers }}</td>
+                        </tr>
+                        <tr>
+                            <td>Items</td>
+                            <td>{{ status.items }}</td>
+                        </tr>
+                    </table>
+                    <p><strong>Last Updated: </strong>{{ status.last_updated }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Data Operations</h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <button id="refreshCache" class="btn btn-primary">Refresh Data Cache</button>
+                        <div id="refreshStatus" class="mt-2"></div>
+                    </div>
+
+                    <hr>
+
+                    <div class="mb-3">
+                        <h6>Data Export/Import</h6>
+                        <button id="exportData" class="btn btn-success">Export Data to JSON</button>
+                        <button id="importData" class="btn btn-warning">Import Data from JSON</button>
+                        <div id="exportImportStatus" class="mt-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Refresh cache button
+    document.getElementById('refreshCache').addEventListener('click', function() {
+        document.getElementById('refreshStatus').innerHTML = '<div class="spinner-border spinner-border-sm text-primary" role="status"></div> Refreshing...';
+
+        fetch('/api/refresh-cache', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                document.getElementById('refreshStatus').innerHTML =
+                    '<div class="alert alert-success">Data cache refreshed. Time: ' + data.timestamp + '</div>';
+
+                // Reload page after short delay to update status
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1500);
+            } else {
+                document.getElementById('refreshStatus').innerHTML =
+                    '<div class="alert alert-warning">' + data.message + '</div>';
+            }
+        })
+        .catch(error => {
+            document.getElementById('refreshStatus').innerHTML =
+                '<div class="alert alert-danger">Refresh failed: ' + error.message + '</div>';
+        });
+    });
+
+    // Export data button
+    document.getElementById('exportData').addEventListener('click', function() {
+        document.getElementById('exportImportStatus').innerHTML = '<div class="spinner-border spinner-border-sm text-primary" role="status"></div> Exporting...';
+
+        fetch('/api/export-data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                document.getElementById('exportImportStatus').innerHTML =
+                    '<div class="alert alert-success">Data exported to JSON file.</div>';
+            } else {
+                document.getElementById('exportImportStatus').innerHTML =
+                    '<div class="alert alert-warning">' + data.message + '</div>';
+            }
+        })
+        .catch(error => {
+            document.getElementById('exportImportStatus').innerHTML =
+                '<div class="alert alert-danger">Export failed: ' + error.message + '</div>';
+        });
+    });
+
+    // Import data button
+    document.getElementById('importData').addEventListener('click', function() {
+        if (confirm('Are you sure you want to import data from the JSON file? This will overwrite the current cached data.')) {
+            document.getElementById('exportImportStatus').innerHTML = '<div class="spinner-border spinner-border-sm text-primary" role="status"></div> Importing...';
+
+            fetch('/api/import-data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    document.getElementById('exportImportStatus').innerHTML =
+                        '<div class="alert alert-success">Data imported from JSON file.</div>';
+
+                    // Reload page after short delay to update status
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1500);
+                } else {
+                    document.getElementById('exportImportStatus').innerHTML =
+                        '<div class="alert alert-warning">' + data.message + '</div>';
+                }
+            })
+            .catch(error => {
+                document.getElementById('exportImportStatus').innerHTML =
+                    '<div class="alert alert-danger">Import failed: ' + error.message + '</div>';
+            });
+        }
+    });
+});
+</script>
+{% endblock %}

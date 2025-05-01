@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+
+{% block title %}{% if inventory %}Edit Inventory{% else %}Add Inventory{% endif %} - Margaret Restaurant Management System{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Page Title and Action Buttons -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">{% if inventory %}Edit Inventory{% else %}Add Inventory{% endif %}</h1>
+        <a href="{{ url_for('inventory_list') }}" class="btn btn-sm btn-secondary">
+            <i class="fas fa-arrow-left me-1"></i>Back to Inventory List
+        </a>
+    </div>
+
+    <!-- Inventory Form Card -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 {% if inventory %}bg-primary{% else %}bg-success{% endif %}">
+            <h6 class="m-0 font-weight-bold text-white">
+                <i class="fas fa-box me-1"></i>{% if inventory %}Edit Inventory Information{% else %}Add Inventory Information{% endif %}
+            </h6>
+        </div>
+        <div class="card-body">
+            <form method="post" id="inventoryForm">
+                <div class="row">
+                    <!-- Basic Information -->
+                    <div class="col-md-6">
+                        <h5 class="mb-3 border-bottom pb-2">Basic Information</h5>
+
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Inventory Name*</label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ inventory.InventoryName if inventory else '' }}" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="type" class="form-label">Inventory Type*</label>
+                            <select class="form-select" id="type" name="type" required>
+                                <option value="">-- Select Type --</option>
+                                <option value="Raw Material" {% if inventory and inventory.InventoryType == 'Raw Material' %}selected{% endif %}>Raw Material</option>
+                                <option value="Semi-Finished" {% if inventory and inventory.InventoryType == 'Semi-Finished' %}selected{% endif %}>Semi-Finished</option>
+                                <option value="Finished Good" {% if inventory and inventory.InventoryType == 'Finished Good' %}selected{% endif %}>Finished Good</option>
+                                <option value="Supply" {% if inventory and inventory.InventoryType == 'Supply' %}selected{% endif %}>Supply</option>
+                                <option value="Equipment" {% if inventory and inventory.InventoryType == 'Equipment' %}selected{% endif %}>Equipment</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="amount" class="form-label">Amount*</label>
+                            <div class="input-group">
+                                <span class="input-group-text">￥</span>
+                                <input type="number" class="form-control" id="amount" name="amount" step="0.01" min="0" value="{{ inventory.InventoryAmount if inventory else '' }}" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="quantity" class="form-label">Quantity*</label>
+                            <input type="number" class="form-control" id="quantity" name="quantity" min="0" value="{{ inventory.InventoryQuantity if inventory else '' }}" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea class="form-control" id="description" name="description" rows="3">{{ inventory.Description if inventory else '' }}</textarea>
+                        </div>
+                    </div>
+
+                    <!-- Supplier and Item Information -->
+                    <div class="col-md-6">
+                        <h5 class="mb-3 border-bottom pb-2">Supplier and Item Information</h5>
+
+                        <div class="mb-3">
+                            <label for="supplier_id" class="form-label">Supplier</label>
+                            <select class="form-select" id="supplier_id" name="supplier_id">
+                                <option value="">-- No Associated Supplier --</option>
+                                {% for supplier in suppliers %}
+                                <option value="{{ supplier.SupplierID }}" {% if inventory and inventory.InventorySupplierID == supplier.SupplierID %}selected{% endif %}>
+                                    {{ supplier.SupplierName }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="item_id" class="form-label">Associated Item</label>
+                            <select class="form-select" id="item_id" name="item_id">
+                                <option value="">-- No Associated Item --</option>
+                                {% for item in items %}
+                                <option value="{{ item.ItemID }}" {% if inventory and inventory.ItemID == item.ItemID %}selected{% endif %}>
+                                    {{ item.ItemName }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="payable_id" class="form-label">Associated Payable ID</label>
+                            <select class="form-select" id="payable_id" name="payable_id" {% if not inventory %}disabled{% endif %}>
+                                <option value="">-- No Associated Payable --</option>
+                                {% for payable in payables %}
+                                <option value="{{ payable.PayableID }}" {% if inventory and inventory.PayableID == payable.PayableID %}selected{% endif %}>
+                                    {{ payable.PayableID }} - {{ payable.PayableTitle }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="order_date" class="form-label">Order Date</label>
+                            <input type="date" class="form-control" id="order_date" name="order_date" value="{{ inventory.OrderDate.strftime('%Y-%m-%d') if inventory and inventory.OrderDate else '' }}">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="due_date" class="form-label">Due Date</label>
+                            <input type="date" class="form-control" id="due_date" name="due_date" value="{{ inventory.DueDate.strftime('%Y-%m-%d') if inventory and inventory.DueDate else '' }}">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                    <button type="reset" class="btn btn-outline-secondary me-md-2">
+                        <i class="fas fa-undo me-1"></i>Reset
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save me-1"></i>Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Form Validation
+        const form = document.getElementById('inventoryForm');
+
+        form.addEventListener('submit', function(event) {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                // Display validation feedback
+                form.classList.add('was-validated');
+            }
+        });
+
+        // Amount Input Formatting
+        const amountInput = document.getElementById('amount');
+        amountInput.addEventListener('blur', function() {
+            if (this.value) {
+                this.value = parseFloat(this.value).toFixed(2);
+            }
+        });
+
+        // Auto-fill related information when item is selected
+        const itemSelect = document.getElementById('item_id');
+        itemSelect.addEventListener('change', function() {
+            // Logic to auto-populate related fields will go here
+        });
+
+        // Auto-filter item options when supplier is selected
+        const supplierSelect = document.getElementById('supplier_id');
+        supplierSelect.addEventListener('change', function() {
+            // Logic to filter items based on supplier will go here
+        });
+    });
+</script>
+{% endblock %}

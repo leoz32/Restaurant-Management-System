@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+
+{% block title %}{% if menu_item %}Edit Menu Item{% else %}Add Menu Item{% endif %} - Margaret Restaurant Management System{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Page Title and Action Buttons -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">{% if menu_item %}Edit Menu Item{% else %}Add Menu Item{% endif %}</h1>
+        <a href="{{ url_for('menu_list') }}" class="btn btn-sm btn-secondary">
+            <i class="fas fa-arrow-left me-1"></i>Back to Menu
+        </a>
+    </div>
+
+    <!-- Menu Item Form Card -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 {% if menu_item %}bg-primary{% else %}bg-success{% endif %}">
+            <h6 class="m-0 font-weight-bold text-white">
+                <i class="fas fa-utensils me-1"></i>{% if menu_item %}Edit Menu Item Information{% else %}Add Menu Item Information{% endif %}
+            </h6>
+        </div>
+        <div class="card-body">
+            <form method="post" id="menuItemForm">
+                <div class="row">
+                    <!-- Left Form Section -->
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Menu Item Name*</label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ menu_item.MenuItemName if menu_item else '' }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="price" class="form-label">Price*</label>
+                            <div class="input-group">
+                                <span class="input-group-text">￥</span>
+                                <input type="number" class="form-control" id="price" name="price" value="{{ menu_item.Price if menu_item else '' }}" step="0.01" min="0" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="category" class="form-label">Category*</label>
+                            <select class="form-select" id="category" name="category" required>
+                                <option value="">-- Select Category --</option>
+                                <option value="Appetizers" {% if menu_item and menu_item.Category == 'Appetizers' %}selected{% endif %}>Appetizers</option>
+                                <option value="Main Course" {% if menu_item and menu_item.Category == 'Main Course' %}selected{% endif %}>Main Course</option>
+                                <option value="Desserts" {% if menu_item and menu_item.Category == 'Desserts' %}selected{% endif %}>Desserts</option>
+                                <option value="Beverages" {% if menu_item and menu_item.Category == 'Beverages' %}selected{% endif %}>Beverages</option>
+                                <option value="Specials" {% if menu_item and menu_item.Category == 'Specials' %}selected{% endif %}>Specials</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Right Form Section -->
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="state" class="form-label">State*</label>
+                            <select class="form-select" id="state" name="state" required>
+                                <option value="Active" {% if menu_item and menu_item.State == 'Active' %}selected{% endif %}>Active</option>
+                                <option value="Inactive" {% if menu_item and menu_item.State == 'Inactive' %}selected{% endif %}>Inactive</option>
+                                <option value="Seasonal" {% if menu_item and menu_item.State == 'Seasonal' %}selected{% endif %}>Seasonal</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea class="form-control" id="description" name="description" rows="4">{{ menu_item.Description if menu_item else '' }}</textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                    <button type="reset" class="btn btn-outline-secondary me-md-2">
+                        <i class="fas fa-undo me-1"></i>Reset
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save me-1"></i>Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Recipe Management Section - Shown Only in Edit Mode -->
+    {% if menu_item %}
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 bg-warning">
+            <h6 class="m-0 font-weight-bold text-dark">
+                <i class="fas fa-list me-1"></i>Recipe Management
+            </h6>
+        </div>
+        <div class="card-body">
+            <!-- Here, you could add code for recipe management.  For now, we're simplifying and just showing a message. -->
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle me-2"></i>The recipe management features require backend interface implementations, and the current version does not provide full functionality.
+            </div>
+
+            <p>To add a recipe for this menu item, follow these steps:</p>
+            <ol>
+                <li>Save the basic menu item information.</li>
+                <li>Add related ingredient information to the database's Recipe table.</li>
+                <li>Associate the ingredients with this menu item (MenuItemID: {{ menu_item.MenuItemID }}).</li>
+            </ol>
+
+            <div class="alert alert-warning">
+                <i class="fas fa-exclamation-triangle me-2"></i>Note: In a real application, functionality to directly manage recipes via the interface should be provided.
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Form Validation
+        const form = document.getElementById('menuItemForm');
+
+        form.addEventListener('submit', function(event) {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+
+            form.classList.add('was-validated');
+        });
+
+        // Price Input Formatting
+        const priceInput = document.getElementById('price');
+        priceInput.addEventListener('blur', function() {
+            if (this.value) {
+                this.value = parseFloat(this.value).toFixed(2);
+            }
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}Food Waste Report{% endblock %}
+
+{% block styles %}
+<style>
+    /* Add any specific styles for this report here */
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Food Waste Report</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="{{ url_for('report_list') }}">Reports</a></li>
+        <li class="breadcrumb-item active">Food Waste Report</li>
+    </ol>
+
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        <i class="fas fa-exclamation-triangle me-2"></i>{{ error }}
+    </div>
+    {% elif waste_data %}
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-trash-alt me-1"></i>
+            Food Waste Details
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Waste ID</th>
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Item ID</th>
+                        <th>Quantity</th>
+                        <th>Note</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in waste_data %}
+                    <tr>
+                        <td>{{ row.WasteID }}</td>
+                        <td>
+                            {% if row.WasteDate %}
+                                {% if row.WasteDate is string %}
+                                    {{ row.WasteDate }} {# Display original string if parsing failed #}
+                                {% else %}
+                                    {# Assume it's a datetime object if not a string #}
+                                    {{ row.WasteDate.strftime('%Y-%m-%d') }}
+                                {% endif %}
+                            {% else %}
+                                {# Empty if WasteDate is None or empty #}
+                            {% endif %}
+                        </td>
+                        <td>{{ row.WasteType }}</td>
+                        <td>{{ row.WasteItemID }}</td>
+                        <td>{{ row.WasteQuantity }}</td>
+                        <td>{{ row.Note }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% else %}
+    <div class="alert alert-info" role="alert">
+        <i class="fas fa-info-circle me-2"></i>No food waste data available for the selected period or criteria.
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Add any specific scripts for this report here -->
+{% endblock %}

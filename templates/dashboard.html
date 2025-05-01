@@ -1,0 +1,248 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Margaret Restaurant Management System{% endblock %}
+
+{% block content %}
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+    <a href="{{ url_for('report_list') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <i class="fas fa-download fa-sm text-white-50 me-1"></i>Generate Report
+    </a>
+</div>
+
+<!-- Key Metrics Cards -->
+<div class="row">
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Total Customers</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ total_customers }}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-users fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+                <a href="{{ url_for('customer_list') }}" class="small text-primary">View Details</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            Total Orders</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ total_orders }}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-shopping-cart fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+                <a href="{{ url_for('order_list') }}" class="small text-success">View Details</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                            Inventory Items</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ total_inventory }}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-boxes fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+                <a href="{{ url_for('inventory_list') }}" class="small text-info">View Details</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                            Orders Today</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ today_orders }}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-calendar-day fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+                <a href="{{ url_for('order_list') }}" class="small text-warning">View Details</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Data Display -->
+<div class="row">
+    <!-- Recent Orders -->
+    <div class="col-lg-6 mb-4">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 bg-primary">
+                <h6 class="m-0 font-weight-bold text-white">
+                    <i class="fas fa-shopping-cart me-1"></i>Recent Orders
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Date</th>
+                                <th>Customer</th>
+                                <th>Dish</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for order in recent_orders %}
+                            <tr>
+                                <td>{{ order.OrderID }}</td>
+                                <td>{{ order.OrderDate }}</td>
+                                <td>{{ order.CustomerName }}</td>
+                                <td>{{ order.MenuItemName }}</td>
+                                <td>¥{{ order.OrderPayment }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-center mt-3">
+                    <a href="{{ url_for('order_list') }}" class="btn btn-sm btn-primary">
+                        View All Orders
+                    </a>
+                    <a href="{{ url_for('new_order') }}" class="btn btn-sm btn-success">
+                        Create New Order
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Low Inventory Warning -->
+    <div class="col-lg-6 mb-4">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 bg-danger">
+                <h6 class="m-0 font-weight-bold text-white">
+                    <i class="fas fa-exclamation-triangle me-1"></i>Low Inventory Alert
+                </h6>
+            </div>
+            <div class="card-body">
+                {% if low_inventory %}
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Inventory ID</th>
+                                <th>Name</th>
+                                <th>Current Qty</th>
+                                <th>Min Qty</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in low_inventory %}
+                            <tr>
+                                <td>{{ item.InventoryID }}</td>
+                                <td>{{ item.InventoryName }}</td>
+                                <td>{{ item.InventoryQuantity }}</td>
+                                <td>{{ item.MinimumQuantity }}</td>
+                                <td>
+                                    {% if item.InventoryQuantity <= item.MinimumQuantity * 0.5 %}
+                                    <span class="badge bg-danger">Critical</span>
+                                    {% else %}
+                                    <span class="badge bg-warning">Warning</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="text-center py-4">
+                    <i class="fas fa-check-circle text-success fa-4x mb-3"></i>
+                    <p class="lead">No low inventory alerts at the moment</p>
+                </div>
+                {% endif %}
+                <div class="text-center mt-3">
+                    <a href="{{ url_for('inventory_list') }}" class="btn btn-sm btn-danger">
+                        Manage Inventory
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Access -->
+<div class="row">
+    <div class="col-lg-12 mb-4">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 bg-secondary">
+                <h6 class="m-0 font-weight-bold text-white">
+                    <i class="fas fa-link me-1"></i>Quick Access
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <a href="{{ url_for('customer_list') }}" class="btn btn-block btn-outline-primary w-100 py-3">
+                            <i class="fas fa-users fa-2x mb-2"></i><br>
+                            Customer Management
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <a href="{{ url_for('menu_list') }}" class="btn btn-block btn-outline-success w-100 py-3">
+                            <i class="fas fa-book-open fa-2x mb-2"></i><br>
+                            Menu Management
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <a href="{{ url_for('new_order') }}" class="btn btn-block btn-outline-info w-100 py-3">
+                            <i class="fas fa-plus-circle fa-2x mb-2"></i><br>
+                            Create Order
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <a href="{{ url_for('report_list') }}" class="btn btn-block btn-outline-dark w-100 py-3">
+                            <i class="fas fa-chart-bar fa-2x mb-2"></i><br>
+                            View Reports
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Add dashboard-specific JavaScript here
+    document.addEventListener('DOMContentLoaded', function() {
+        // Real-time clock or other features can be implemented here
+    });
+</script>
+{% endblock %}

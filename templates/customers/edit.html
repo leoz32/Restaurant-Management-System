@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block title %}{% if customer %}Edit{% else %}ADD{% endif %} - Margaret Resturant Management System{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- 页面标题和操作按钮 -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">{% if customer %}edit{% else %}add{% endif %}</h1>
+        <a href="{{ url_for('customer_list') }}" class="btn btn-sm btn-secondary">
+            <i class="fas fa-arrow-left me-1"></i>return list
+        </a>
+    </div>
+
+    <!-- 客户表单卡片 -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 {% if customer %}bg-primary{% else %}bg-success{% endif %}">
+            <h6 class="m-0 font-weight-bold text-white">
+                <i class="fas fa-user-edit me-1"></i>{% if customer %}edit information{% else %}add information{% endif %}
+            </h6>
+        </div>
+        <div class="card-body">
+            <form method="post" id="customerForm">
+                <div class="row">
+                    <!-- 左侧表单部分 -->
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="first_name" class="form-label">first name*</label>
+                            <input type="text" class="form-control" id="first_name" name="first_name" value="{{ customer.CustomerFirstName if customer else '' }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="last_name" class="form-label">last name*</label>
+                            <input type="text" class="form-control" id="last_name" name="last_name" value="{{ customer.CustomerLastName if customer else '' }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="gender" class="form-label">gender</label>
+                            <select class="form-select" id="gender" name="gender">
+                                <option value="Male" {% if customer and customer.CustomerGender == 'Male' %}selected{% endif %}>男</option>
+                                <option value="Female" {% if customer and customer.CustomerGender == 'Female' %}selected{% endif %}>女</option>
+                                <option value="Other" {% if customer and customer.CustomerGender == 'Other' %}selected{% endif %}>其他</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">phone*</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" value="{{ customer.CustomerPhone if customer else '' }}" required>
+                        </div>
+                    </div>
+                    
+                    <!-- 右侧表单部分 -->
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">email</label>
+                            <input type="email" class="form-control" id="email" name="email" value="{{ customer.CustomerEmail if customer else '' }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="customer_type" class="form-label">customer type*</label>
+                            <select class="form-select" id="customer_type" name="customer_type" required>
+                                <option value="Regular" {% if customer and customer.CustomerType == 'Regular' %}selected{% endif %}>frequenter</option>
+                                <option value="VIP" {% if customer and customer.CustomerType == 'VIP' %}selected{% endif %}>VIP</option>
+                                <option value="New" {% if customer and customer.CustomerType == 'New' %}selected{% endif %}>new customer</option>
+                                <option value="Corporate" {% if customer and customer.CustomerType == 'Corporate' %}selected{% endif %}>enterprise customer</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="birthday" class="form-label">birthday</label>
+                            <input type="date" class="form-control" id="birthday" name="birthday" value="{{ customer.CustomerBirthday if customer else '' }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="card" class="form-label">merbership id</label>
+                            <input type="text" class="form-control" id="card" name="card" value="{{ customer.CustomerCard if customer else '' }}">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                    <button type="reset" class="btn btn-outline-secondary me-md-2">
+                        <i class="fas fa-undo me-1"></i>reset
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save me-1"></i>save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 表单验证
+        const form = document.getElementById('customerForm');
+        
+        form.addEventListener('submit', function(event) {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            
+            form.classList.add('was-validated');
+        });
+        
+        // 格式化电话号码
+        const phoneInput = document.getElementById('phone');
+        phoneInput.addEventListener('blur', function() {
+            // 简单的电话格式验证和格式化
+            let phone = this.value.replace(/\D/g, '');
+            if(phone.length === 11) {
+                this.value = phone.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+            }
+        });
+    });
+</script>
+{% endblock %}

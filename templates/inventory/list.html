@@ -1,0 +1,279 @@
+{% extends 'base.html' %}
+
+{% block title %}Inventory Management - Margaret Restaurant Management System{% endblock %}
+
+{% block content %}
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Inventory Management</h1>
+    <a href="{{ url_for('edit_inventory', inventory_id=0) }}" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">
+        <i class="fas fa-plus fa-sm text-white-50 me-1"></i>Add Inventory Item
+    </a>
+</div>
+
+<!-- Inventory Status Cards -->
+<div class="row">
+    <!-- Total Inventory Items -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Total Inventory Items</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ inventory_items|length }}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-boxes fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Low Stock Alerts -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                            Low Stock Alerts</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ inventory_items|selectattr('InventoryQuantity', 'le', 10)|list|length }}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Number of Suppliers -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                            Number of Suppliers</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            {{ inventory_items|map(attribute='SupplierName')|unique|list|length }}
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-truck fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Total Inventory Value -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            Total Inventory Value</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            ￥{{ inventory_items|sum(attribute='InventoryAmount')|round(2) }}
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Inventory Filtering and Search -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3 bg-light">
+        <form id="inventoryFilterForm" class="row g-3 align-items-center">
+            <div class="col-md-3">
+                <label for="inventoryType" class="form-label">Filter by Type</label>
+                <select class="form-select" id="inventoryType">
+                    <option value="">All Types</option>
+                    {% set types = [] %}
+                    {% for item in inventory_items %}
+                        {% if item.InventoryType not in types %}
+                            {% set _ = types.append(item.InventoryType) %}
+                            <option value="{{ item.InventoryType }}">{{ item.InventoryType }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="supplierFilter" class="form-label">Filter by Supplier</label>
+                <select class="form-select" id="supplierFilter">
+                    <option value="">All Suppliers</option>
+                    {% set suppliers = [] %}
+                    {% for item in inventory_items %}
+                        {% if item.SupplierName not in suppliers %}
+                            {% set _ = suppliers.append(item.SupplierName) %}
+                            <option value="{{ item.SupplierName }}">{{ item.SupplierName }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="inventorySearch" class="form-label">Search</label>
+                <input type="text" class="form-control" id="inventorySearch" placeholder="Inventory Name or Item">
+            </div>
+            <div class="col-md-3 d-flex align-items-end">
+                <button type="button" id="filterBtn" class="btn btn-primary">
+                    <i class="fas fa-filter me-1"></i>Filter
+                </button>
+                <button type="button" id="resetFilterBtn" class="btn btn-outline-secondary ms-2">
+                    <i class="fas fa-undo me-1"></i>Reset
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Inventory Table -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Inventory Item List</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover" id="inventoryTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Inventory Name</th>
+                        <th>Type</th>
+                        <th>Supplier</th>
+                        <th>Quantity</th>
+                        <th>Amount</th>
+                        <th>Item Name</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in inventory_items %}
+                    <tr>
+                        <td>{{ item.InventoryID }}</td>
+                        <td>{{ item.InventoryName }}</td>
+                        <td>{{ item.InventoryType }}</td>
+                        <td>{{ item.SupplierName }}</td>
+                        <td>{{ item.InventoryQuantity }}</td>
+                        <td>￥{{ item.InventoryAmount }}</td>
+                        <td>{{ item.ItemName }}</td>
+                        <td>
+                            {% if item.InventoryQuantity <= 10 %}
+                            <span class="badge bg-danger">Low Stock</span>
+                            {% elif item.InventoryQuantity <= 30 %}
+                            <span class="badge bg-warning text-dark">Moderate Stock</span>
+                            {% else %}
+                            <span class="badge bg-success">Sufficient Stock</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a href="{{ url_for('view_inventory', inventory_id=item.InventoryID) }}" class="btn btn-info btn-sm" title="View">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="{{ url_for('edit_inventory', inventory_id=item.InventoryID) }}" class="btn btn-primary btn-sm" title="Edit">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <button type="button" class="btn btn-danger btn-sm" title="Delete" 
+                                        onclick="confirmDelete('{{ item.InventoryID }}', '{{ item.InventoryName }}')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal - Single modal for all items -->
+<div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteConfirmModalLabel">Confirm Deletion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete "<span id="itemToDelete"></span>"?</p>
+                <p class="text-danger">This action cannot be undone.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <form id="deleteForm" method="POST">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize DataTables
+        const inventoryTable = $('#inventoryTable').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/English.json"
+            },
+            "order": [[1, 'asc']] // Default sort by name
+        });
+
+        // Filter Functionality
+        $('#filterBtn').click(function() {
+            const typeFilter = $('#inventoryType').val();
+            const supplierFilter = $('#supplierFilter').val();
+            const searchTerm = $('#inventorySearch').val();
+
+            // Reset all filters
+            inventoryTable.search('').columns().search('').draw();
+
+            // Apply Type Filter
+            if (typeFilter) {
+                inventoryTable.column(2).search(typeFilter).draw();
+            }
+
+            // Apply Supplier Filter
+            if (supplierFilter) {
+                inventoryTable.column(3).search(supplierFilter).draw();
+            }
+
+            // Apply Search
+            if (searchTerm) {
+                inventoryTable.search(searchTerm).draw();
+            }
+        });
+
+        // Reset Filters
+        $('#resetFilterBtn').click(function() {
+            $('#inventoryFilterForm')[0].reset();
+            inventoryTable.search('').columns().search('').draw();
+        });
+    });
+    
+    // Delete Confirmation Function
+    function confirmDelete(id, name) {
+        // Set the item name in the modal
+        document.getElementById('itemToDelete').textContent = name;
+        
+        // Set the form action
+        document.getElementById('deleteForm').action = "{{ url_for('delete_inventory', inventory_id='') }}" + id;
+        
+        // Show the modal
+        var deleteModal = new bootstrap.Modal(document.getElementById('deleteConfirmModal'));
+        deleteModal.show();
+    }
+</script>
+{% endblock %}

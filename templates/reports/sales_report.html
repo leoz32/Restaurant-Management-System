@@ -1,0 +1,328 @@
+{% extends "base.html" %}
+
+{% block title %}Sales Report{% endblock %}
+
+{% block styles %}
+<style>
+    .chart-container {
+        position: relative;
+        height: 300px;
+        margin-bottom: 20px;
+    }
+    .sales-summary-card {
+        border-left: 4px solid;
+        min-height: 100px;
+    }
+    .sales-card {
+        border-color: #4CAF50;
+    }
+    .orders-card {
+        border-color: #2196F3;
+    }
+    .avg-card {
+        border-color: #FF9800;
+    }
+    .summary-value {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .summary-label {
+        color: #6c757d;
+        font-size: 14px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Sales Report</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="{{ url_for('report_list') }}">Reports</a></li>
+        <li class="breadcrumb-item active">Sales Report</li>
+    </ol>
+
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        <i class="fas fa-exclamation-triangle me-2"></i>{{ error }}
+    </div>
+    {% else %}
+
+    <!-- Sales Summary Cards -->
+    <div class="row">
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card sales-summary-card sales-card">
+                <div class="card-body">
+                    <div class="summary-label">Total Sales</div>
+                    <div class="summary-value">${{ raw_data|map(attribute='TotalSales')|sum|round(2) }}</div>
+                    <div class="mt-2">
+                        <span class="badge bg-success">Yearly Total</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card sales-summary-card orders-card">
+                <div class="card-body">
+                    <div class="summary-label">Total Orders</div>
+                    <div class="summary-value">{{ raw_data|map(attribute='OrderCount')|sum }}</div>
+                    <div class="mt-2">
+                        <span class="badge bg-primary">Yearly Total</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card sales-summary-card avg-card">
+                <div class="card-body">
+                    <div class="summary-label">Average Order Value</div>
+                    {% set total_sales = raw_data|map(attribute='TotalSales')|sum %}
+                    {% set total_orders = raw_data|map(attribute='OrderCount')|sum %}
+                    <div class="summary-value">
+                        ${{ (total_sales / total_orders)|round(2) if total_orders > 0 else 0 }}
+                    </div>
+                    <div class="mt-2">
+                        <span class="badge bg-warning">Average</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Monthly Sales Chart -->
+    <div class="row">
+        <div class="col-xl-8">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar me-1"></i>
+                    Monthly Sales Trend
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="monthlySalesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-4">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-pie me-1"></i>
+                    Sales by Category
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="categorySalesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Monthly Sales Data Table -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    Monthly Sales Details
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Month</th>
+                                <th>Order Count</th>
+                                <th>Sales Amount</th>
+                                <th>Average Order Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in raw_data %}
+                            <tr>
+                                <td>{{ row.Month }}</td>
+                                <td>{{ row.OrderCount }}</td>
+                                <td>${{ row.TotalSales|round(2) }}</td>
+                                <td>${{ (row.TotalSales / row.OrderCount)|round(2) if row.OrderCount > 0 else 0 }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr class="table-secondary">
+                                <th>Total</th>
+                                <th>{{ raw_data|map(attribute='OrderCount')|sum }}</th>
+                                <th>${{ raw_data|map(attribute='TotalSales')|sum|round(2) }}</th>
+                                <th>${{ (raw_data|map(attribute='TotalSales')|sum / raw_data|map(attribute='OrderCount')|sum)|round(2) if raw_data|map(attribute='OrderCount')|sum > 0 else 0 }}</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Sales Data Table -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-tags me-1"></i>
+                    Sales Details by Category
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Order Count</th>
+                                <th>Sales Amount</th>
+                                <th>Percentage of Total Sales</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in secondary_data %}
+                            <tr>
+                                <td>{{ row.Category if row.Category else "Uncategorized" }}</td>
+                                <td>{{ row.OrderCount }}</td>
+                                <td>${{ row.TotalSales|round(2) }}</td>
+                                {% set total_sales = raw_data|map(attribute='TotalSales')|sum %}
+                                <td>{{ ((row.TotalSales / total_sales) * 100)|round(1) if total_sales > 0 else 0 }}%</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr class="table-secondary">
+                                <th>Total</th>
+                                <th>{{ secondary_data|map(attribute='OrderCount')|sum }}</th>
+                                <th>${{ secondary_data|map(attribute='TotalSales')|sum|round(2) }}</th>
+                                <th>100%</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        {% if not error %}
+        // Monthly Sales Chart
+        const salesData = {{ chart_data|safe }};
+        const salesCtx = document.getElementById('monthlySalesChart').getContext('2d');
+
+        new Chart(salesCtx, {
+            type: 'bar',
+            data: {
+                labels: salesData.labels,
+                datasets: [{
+                    label: 'Monthly Sales Amount',
+                    data: salesData.values,
+                    backgroundColor: 'rgba(75, 192, 192, 0.7)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Sales Amount ($)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Month'
+                        }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += '$' + context.parsed.y.toFixed(2);
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Category Sales Chart
+        const categoryData = {{ secondary_chart|safe }};
+        const categoryCtx = document.getElementById('categorySalesChart').getContext('2d');
+
+        new Chart(categoryCtx, {
+            type: 'pie',
+            data: {
+                labels: categoryData.labels.map(label => label || "Uncategorized"), // Added handling for null/empty labels
+                datasets: [{
+                    data: categoryData.values,
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.7)',
+                        'rgba(54, 162, 235, 0.7)',
+                        'rgba(255, 206, 86, 0.7)',
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(153, 102, 255, 0.7)',
+                        'rgba(255, 159, 64, 0.7)',
+                        'rgba(199, 199, 199, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(199, 199, 199, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed !== null) {
+                                    let value = context.parsed;
+                                    let total = context.dataset.data.reduce((acc, val) => acc + val, 0);
+                                    let percentage = ((value / total) * 100).toFixed(1);
+                                    label += '$' + value.toFixed(2) + ' (' + percentage + '%)';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        {% endif %}
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block title %}{% if staff %}Edit{% else %}Add{% endif %} Staff - Margaret Restaurant Management System{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Page title and action buttons -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">{% if staff %}Edit{% else %}Add{% endif %} Staff</h1>
+        <a href="{{ url_for('staff_list') }}" class="btn btn-sm btn-secondary">
+            <i class="fas fa-arrow-left me-1"></i>Return to List
+        </a>
+    </div>
+
+    <!-- Staff form card -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 {% if staff %}bg-primary{% else %}bg-success{% endif %}">
+            <h6 class="m-0 font-weight-bold text-white">
+                <i class="fas fa-user-edit me-1"></i>{% if staff %}Edit Staff Information{% else %}Add Staff Information{% endif %}
+            </h6>
+        </div>
+        <div class="card-body">
+            <form method="post" id="staffForm">
+                <div class="row">
+                    <!-- Left form section -->
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="first_name" class="form-label">First Name*</label>
+                            <input type="text" class="form-control" id="first_name" name="first_name" value="{{ staff.StaffFirstName if staff else '' }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="last_name" class="form-label">Last Name*</label>
+                            <input type="text" class="form-control" id="last_name" name="last_name" value="{{ staff.StaffLastName if staff else '' }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="position" class="form-label">Position*</label>
+                            <select class="form-select" id="position" name="position" required>
+                                <option value="Manager" {% if staff and staff.StaffPosition == 'Manager' %}selected{% endif %}>Manager</option>
+                                <option value="Chef" {% if staff and staff.StaffPosition == 'Chef' %}selected{% endif %}>Chef</option>
+                                <option value="Waiter" {% if staff and staff.StaffPosition == 'Waiter' %}selected{% endif %}>Waiter</option>
+                                <option value="Cashier" {% if staff and staff.StaffPosition == 'Cashier' %}selected{% endif %}>Cashier</option>
+                                <option value="Cleaner" {% if staff and staff.StaffPosition == 'Cleaner' %}selected{% endif %}>Cleaner</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone*</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" value="{{ staff.StaffPhone if staff else '' }}" required>
+                        </div>
+                    </div>
+                    
+                    <!-- Right form section -->
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" value="{{ staff.StaffEmail if staff else '' }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="order_count" class="form-label">Order Count</label>
+                            <input type="number" class="form-control" id="order_count" name="order_count" value="{{ staff.OrderCount if staff else 0 }}" {% if not staff %}readonly disabled{% endif %}>
+                            <small class="text-muted">Number of orders handled</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="total_hours" class="form-label">Total Hours</label>
+                            <input type="number" step="0.1" class="form-control" id="total_hours" name="total_hours" value="{{ staff.TotalHours if staff else 0.0 }}" {% if not staff %}readonly disabled{% endif %}>
+                            <small class="text-muted">Total working hours</small>
+                        </div>
+                        {% if staff %}
+                        <div class="mb-3">
+                            <label for="staff_id" class="form-label">Staff ID</label>
+                            <input type="text" class="form-control" id="staff_id" name="staff_id" value="{{ staff.StaffID }}" readonly>
+                            <small class="text-muted">Auto-generated ID</small>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                    <button type="reset" class="btn btn-outline-secondary me-md-2">
+                        <i class="fas fa-undo me-1"></i>Reset
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save me-1"></i>Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Form validation
+        const form = document.getElementById('staffForm');
+        
+        form.addEventListener('submit', function(event) {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            
+            form.classList.add('was-validated');
+        });
+        
+        // Format phone number
+        const phoneInput = document.getElementById('phone');
+        phoneInput.addEventListener('blur', function() {
+            // Simple phone format validation and formatting
+            let phone = this.value.replace(/\D/g, '');
+            if(phone.length === 11) {
+                this.value = phone.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+            }
+        });
+    });
+</script>
+{% endblock %}

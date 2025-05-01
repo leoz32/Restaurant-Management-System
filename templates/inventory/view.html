@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ inventory.InventoryName }} - Inventory Details{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Page Title and Action Buttons -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Inventory Details</h1>
+        <div>
+            <a href="{{ url_for('inventory_list') }}" class="btn btn-sm btn-secondary">
+                <i class="fas fa-arrow-left me-1"></i>Back to Inventory List
+            </a>
+            <a href="{{ url_for('edit_inventory', inventory_id=inventory.InventoryID) }}" class="btn btn-sm btn-primary">
+                <i class="fas fa-edit me-1"></i>Edit Inventory
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Inventory Basic Information -->
+        <div class="col-lg-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 bg-primary">
+                    <h6 class="m-0 font-weight-bold text-white">
+                        <i class="fas fa-box me-1"></i>Inventory Basic Information
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-lg-4 font-weight-bold text-primary">Inventory ID:</div>
+                        <div class="col-lg-8">{{ inventory.InventoryID }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-4 font-weight-bold text-primary">Inventory Name:</div>
+                        <div class="col-lg-8">{{ inventory.InventoryName }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-4 font-weight-bold text-primary">Inventory Type:</div>
+                        <div class="col-lg-8">{{ inventory.InventoryType }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-4 font-weight-bold text-primary">Current Quantity:</div>
+                        <div class="col-lg-8">
+                            {{ inventory.InventoryQuantity }}
+                            {% if inventory.MinimumQuantity and inventory.InventoryQuantity <= inventory.MinimumQuantity %}
+                                <span class="badge bg-danger ms-2">Below Minimum Stock ({{ inventory.MinimumQuantity }})</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-4 font-weight-bold text-primary">Amount:</div>
+                        <div class="col-lg-8">￥{{ inventory.InventoryAmount }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 font-weight-bold text-primary">Description:</div>
+                        <div class="col-lg-8">{{ inventory.Description or 'None' }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Supplier Information -->
+        <div class="col-lg-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 bg-info">
+                    <h6 class="m-0 font-weight-bold text-white">
+                        <i class="fas fa-truck me-1"></i>Supplier Information
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-lg-4 font-weight-bold text-info">Supplier Name:</div>
+                        <div class="col-lg-8">{{ inventory.SupplierName }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-4 font-weight-bold text-info">Contact Person:</div>
+                        <div class="col-lg-8">{{ inventory.ContactName }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-4 font-weight-bold text-info">Contact Email:</div>
+                        <div class="col-lg-8">
+                            <a href="mailto:{{ inventory.ContactEmail }}">{{ inventory.ContactEmail }}</a>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-4 font-weight-bold text-info">Item Name:</div>
+                        <div class="col-lg-8">{{ inventory.ItemName }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-4 font-weight-bold text-info">Minimum Stock:</div>
+                        <div class="col-lg-8">{{ inventory.MinimumQuantity or 'Not Set' }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-4 font-weight-bold text-info">Order Date:</div>
+                        <div class="col-lg-8">{{ inventory.OrderDate or 'Not Recorded' }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 font-weight-bold text-info">Due Date:</div>
+                        <div class="col-lg-8">
+                            {{ inventory.DueDate or 'Not Recorded' }}
+                            {% if inventory.DueDate %}
+                                {% set days_remaining = ((inventory.DueDate - today).days) %}
+                                {% if days_remaining < 0 %}
+                                    <span class="badge bg-danger ms-2">Expired</span>
+                                {% elif days_remaining < 7 %}
+                                    <span class="badge bg-warning text-dark ms-2">Expiring Soon ({{ days_remaining }} days)</span>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Financial Information -->
+        <div class="col-lg-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 bg-success">
+                    <h6 class="m-0 font-weight-bold text-white">
+                        <i class="fas fa-file-invoice-dollar me-1"></i>Financial Information
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-lg-4 font-weight-bold text-success">Payable ID:</div>
+                        <div class="col-lg-8">{{ inventory.InventoryPayableID or 'No Associated Payable' }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-4 font-weight-bold text-success">Payable Amount:</div>
+                        <div class="col-lg-8">{{ '￥' + inventory.PayableAmount|string if inventory.PayableAmount else 'None' }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-4 font-weight-bold text-success">Due Date:</div>
+                        <div class="col-lg-8">{{ inventory.PayableDueDate or 'None' }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 font-weight-bold text-success">Status:</div>
+                        <div class="col-lg-8">
+                            {% if inventory.PayableDatePaid %}
+                                <span class="badge bg-success">Paid ({{ inventory.PayableDatePaid }})</span>
+                            {% elif inventory.PayableDueDate %}
+                                {% if inventory.PayableDueDate < today %}
+                                    <span class="badge bg-danger">Overdue</span>
+                                {% else %}
+                                    <span class="badge bg-warning text-dark">Pending Payment</span>
+                                {% endif %}
+                            {% else %}
+                                <span class="badge bg-secondary">No Information</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipe Usage -->
+        <div class="col-lg-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 bg-warning">
+                    <h6 class="m-0 font-weight-bold text-dark">
+                        <i class="fas fa-utensils me-1"></i>Recipe Usage
+                    </h6>
+                </div>
+                <div class="card-body">
+                    {% if recipes %}
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Recipe ID</th>
+                                    <th>Menu Item Name</th>
+                                    <th>Quantity Used</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for recipe in recipes %}
+                                <tr>
+                                    <td>{{ recipe.RecipeID }}</td>
+                                    <td>{{ recipe.MenuItemName }}</td>
+                                    <td>{{ recipe.QuantityUsed }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% else %}
+                    <div class="text-center p-4">
+                        <i class="fas fa-info-circle fa-3x text-gray-300 mb-3"></i>
+                        <p>This inventory item is not used in any recipes.</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

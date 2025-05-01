@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+
+{% block title %}Menu Management - Margaret Restaurant Management System{% endblock %}
+
+{% block content %}
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Menu Management</h1>
+    <a href="{{ url_for('new_menu_item') }}" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">
+        <i class="fas fa-plus fa-sm text-white-50 me-1"></i>Add New Menu Item
+    </a>
+</div>
+
+<!-- Category Navigation -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3 bg-light">
+        <ul class="nav nav-pills" id="menuCategoryTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="all-tab" data-bs-toggle="pill" data-bs-target="#all" type="button" role="tab">
+                    All Menu Items
+                </button>
+            </li>
+            {% set categories = [] %}
+            {% for item in menu_items %}
+                {% if item.Category not in categories %}
+                    {% set _ = categories.append(item.Category) %}
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="{{ item.Category|lower }}-tab" data-bs-toggle="pill" data-bs-target="#{{ item.Category|lower }}" type="button" role="tab">
+                            {{ item.Category }}
+                        </button>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="card-body">
+        <div class="tab-content" id="menuCategoryTabContent">
+            <!-- All Menu Items -->
+            <div class="tab-pane fade show active" id="all" role="tabpanel">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="menuTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Menu Item Name</th>
+                                <th>Price</th>
+                                <th>Category</th>
+                                <th>Status</th>
+                                <th>Order Count</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in menu_items %}
+                            <tr>
+                                <td>{{ item.MenuItemID }}</td>
+                                <td>{{ item.MenuItemName }}</td>
+                                <td>￥{{ item.Price }}</td>
+                                <td>{{ item.Category }}</td>
+                                <td>
+                                    {% if item.State == 'Active' %}
+                                    <span class="badge bg-success">Active</span>
+                                    {% elif item.State == 'Inactive' %}
+                                    <span class="badge bg-secondary">Inactive</span>
+                                    {% elif item.State == 'Seasonal' %}
+                                    <span class="badge bg-warning text-dark">Seasonal</span>
+                                    {% else %}
+                                    <span class="badge bg-info">{{ item.State }}</span>
+                                    {% endif %}
+                                </td>
+                                <td>{{ item.OrderCount }}</td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <a href="{{ url_for('view_menu_item', menu_item_id=item.MenuItemID) }}" class="btn btn-info btn-sm" title="View">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                        <a href="{{ url_for('edit_menu_item', menu_item_id=item.MenuItemID) }}" class="btn btn-primary btn-sm" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <button type="button" class="btn btn-danger btn-sm" title="Delete" 
+                                                onclick="confirmDelete('{{ item.MenuItemID }}', '{{ item.MenuItemName }}')">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Category Tab Panes -->
+            {% for category in categories %}
+            <div class="tab-pane fade" id="{{ category|lower }}" role="tabpanel">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Menu Item Name</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>Order Count</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in menu_items %}
+                                {% if item.Category == category %}
+                                <tr>
+                                    <td>{{ item.MenuItemID }}</td>
+                                    <td>{{ item.MenuItemName }}</td>
+                                    <td>￥{{ item.Price }}</td>
+                                    <td>
+                                        {% if item.State == 'Active' %}
+                                        <span class="badge bg-success">Active</span>
+                                        {% elif item.State == 'Inactive' %}
+                                        <span class="badge bg-secondary">Inactive</span>
+                                        {% elif item.State == 'Seasonal' %}
+                                        <span class="badge bg-warning text-dark">Seasonal</span>
+                                        {% else %}
+                                        <span class="badge bg-info">{{ item.State }}</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ item.OrderCount }}</td>
+                                    <td>
+                                        <div class="btn-group" role="group">
+                                            <a href="{{ url_for('view_menu_item', menu_item_id=item.MenuItemID) }}" class="btn btn-info btn-sm" title="View">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                            <a href="{{ url_for('edit_menu_item', menu_item_id=item.MenuItemID) }}" class="btn btn-primary btn-sm" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <button type="button" class="btn btn-danger btn-sm" title="Delete" 
+                                                    onclick="confirmDelete('{{ item.MenuItemID }}', '{{ item.MenuItemName }}')">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal - Single modal for all items -->
+<div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteConfirmModalLabel">Confirm Deletion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete "<span id="itemToDelete"></span>"?</p>
+                <p class="text-danger">This action cannot be undone.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <form id="deleteForm" method="POST">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize DataTables
+        $('#menuTable').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/English.json"
+            },
+            "order": [[1, 'asc']] // Default sort by name
+        });
+    });
+    
+    // Delete Confirmation Function
+    function confirmDelete(id, name) {
+        // Set the item name in the modal
+        document.getElementById('itemToDelete').textContent = name;
+        
+        // Set the form action
+        document.getElementById('deleteForm').action = "{{ url_for('delete_menu_item', menu_item_id='') }}" + id;
+        
+        // Show the modal
+        var deleteModal = new bootstrap.Modal(document.getElementById('deleteConfirmModal'));
+        deleteModal.show();
+    }
+</script>
+{% endblock %}

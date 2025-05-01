@@ -1,0 +1,220 @@
+{% extends 'base.html' %}
+
+{% block title %}Staff Management - Margaret Restaurant Management System{% endblock %}
+
+{% block content %}
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Staff Management</h1>
+    <div>
+        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exportModal">
+            <i class="fas fa-file-export fa-sm text-white-50 me-1"></i>Export Staff List
+        </button>
+        <a href="{{ url_for('new_staff') }}" class="btn btn-success btn-sm">
+            <i class="fas fa-plus fa-sm text-white-50 me-1"></i>Add Staff
+        </a>
+    </div>
+</div>
+
+<!-- Staff Status Cards -->
+<div class="row">
+    <!-- Total Staff -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Total Staff</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ staff|length }}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-users fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Total Hours -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                            Total Hours</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            {{ staff|sum(attribute='TotalHours')|round(1) if staff|sum(attribute='TotalHours') else 0 }} Hours
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-clock fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Count -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                            Order Count</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            {{ staff|sum(attribute='OrderCount') }}
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-shopping-cart fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Staff Table -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Staff List</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover" id="staffTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Order Count</th>
+                        <th>Total Hours</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for member in staff %}
+                    <tr>
+                        <td>{{ member.StaffID }}</td>
+                        <td>{{ member.StaffFirstName }} {{ member.StaffLastName }}</td>
+                        <td>
+                            {% if member.StaffPosition == 'Manager' %}
+                            <span class="badge bg-danger">Manager</span>
+                            {% elif member.StaffPosition == 'Chef' %}
+                            <span class="badge bg-warning text-dark">Chef</span>
+                            {% elif member.StaffPosition == 'Waiter' %}
+                            <span class="badge bg-info">Waiter</span>
+                            {% elif member.StaffPosition == 'Cashier' %}
+                            <span class="badge bg-success">Cashier</span>
+                            {% else %}
+                            <span class="badge bg-secondary">{{ member.StaffPosition }}</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ member.StaffPhone }}</td>
+                        <td>{{ member.StaffEmail }}</td>
+                        <td>{{ member.OrderCount }}</td>
+                        <td>{{ member.TotalHours }}</td>
+                        <td>
+                            <a href="{{ url_for('view_staff', staff_id=member.StaffID) }}" class="btn btn-info btn-sm">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="{{ url_for('edit_staff', staff_id=member.StaffID) }}" class="btn btn-primary btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{ member.StaffID }}">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                            
+                            <!-- Delete Modal for each staff member -->
+                            <div class="modal fade" id="deleteModal{{ member.StaffID }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ member.StaffID }}" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header bg-danger text-white">
+                                            <h5 class="modal-title" id="deleteModalLabel{{ member.StaffID }}">确认删除</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            确定要删除员工: <strong>{{ member.StaffFirstName }} {{ member.StaffLastName }}</strong>?
+                                            <p class="text-danger mt-2 mb-0"><small>此操作无法撤销。</small></p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                                            <form action="{{ url_for('delete_staff', staff_id=member.StaffID) }}" method="post">
+                                                <button type="submit" class="btn btn-danger">删除</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Export Modal -->
+<div class="modal fade" id="exportModal" tabindex="-1" aria-labelledby="exportModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="exportModalLabel">Export Staff Data</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Select the format to export:</p>
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-outline-primary" onclick="exportTableToExcel('staffTable', 'staff_data')">
+                        <i class="fas fa-file-excel me-1"></i>Export as Excel Sheet
+                    </button>
+                    <button type="button" class="btn btn-outline-danger" onclick="exportTableToPDF('staffTable', 'staff_data')">
+                        <i class="fas fa-file-pdf me-1"></i>Export as PDF Document
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary" onclick="exportTableToCSV('staffTable', 'staff_data')">
+                        <i class="fas fa-file-csv me-1"></i>Export as CSV File
+                    </button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize DataTables
+        const staffTable = $('#staffTable').DataTable({
+            // Note: If you want DataTables UI elements (like search, pagination) in English,
+            // you should remove or change the language URL below to an English one.
+            // Keeping the original URL as requested.
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Chinese.json"
+            }
+        });
+
+        // Export functions (placeholder alerts translated)
+        window.exportTableToExcel = function(tableID, filename = '') {
+            // Use function from scripts.js
+            exportTableToExcel(tableID, filename);
+        };
+
+        window.exportTableToPDF = function(tableID, filename = '') {
+            alert('PDF export requires additional libraries, e.g., jsPDF. Implement this feature in a real application.'); // Translated
+        };
+
+        window.exportTableToCSV = function(tableID, filename = '') {
+            alert('CSV export can be implemented using DataTables\' built-in features in a real application.'); // Translated
+        };
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ customer.CustomerFirstName }} {{ customer.CustomerLastName }} - Customer Details{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Page Title and Actions -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Customer Details</h1>
+        <div>
+            <a href="{{ url_for('customer_list') }}" class="btn btn-sm btn-secondary">
+                <i class="fas fa-arrow-left me-1"></i>Back to List
+            </a>
+            <a href="{{ url_for('edit_customer', customer_id=customer.CustomerID) }}" class="btn btn-sm btn-primary">
+                <i class="fas fa-edit me-1"></i>Edit Customer
+            </a>
+        </div>
+    </div>
+
+    <!-- Customer Information Card -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 bg-primary">
+            <h6 class="m-0 font-weight-bold text-white">
+                <i class="fas fa-user me-1"></i>Basic Information
+            </h6>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table table-borderless">
+                        <tr>
+                            <th width="30%">Name:</th>
+                            <td>{{ customer.CustomerFirstName }} {{ customer.CustomerLastName }}</td>
+                        </tr>
+                        <tr>
+                            <th>Customer Type:</th>
+                            <td>
+                                {% if customer.CustomerType == 'VIP' %}
+                                <span class="badge bg-warning text-dark">VIP</span>
+                                {% elif customer.CustomerType == 'Regular' %}
+                                <span class="badge bg-info">Regular</span> {# Changed from 常客 #}
+                                {% else %}
+                                <span class="badge bg-secondary">{{ customer.CustomerType }}</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Gender:</th>
+                            <td>{{ customer.CustomerGender }}</td>
+                        </tr>
+                        <tr>
+                            <th>Birthday:</th>
+                            <td>{{ customer.CustomerBirthday }}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <table class="table table-borderless">
+                        <tr>
+                            <th width="30%">Customer ID:</th>
+                            <td>{{ customer.CustomerID }}</td>
+                        </tr>
+                        <tr>
+                            <th>Phone:</th>
+                            <td>{{ customer.CustomerPhone }}</td>
+                        </tr>
+                        <tr>
+                            <th>Email:</th>
+                            <td>{{ customer.CustomerEmail }}</td>
+                        </tr>
+                        <tr>
+                            <th>Membership Card:</th>
+                            <td>{{ customer.CustomerCard }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Customer Orders -->
+        <div class="col-lg-8">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 bg-success">
+                    <h6 class="m-0 font-weight-bold text-white">
+                        <i class="fas fa-shopping-cart me-1"></i>Order History
+                    </h6>
+                </div>
+                <div class="card-body">
+                    {% if orders %}
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Date</th>
+                                    <th>Items</th> {# Changed from 商品 #}
+                                    <th>Payment</th> {# Changed from 支付金额 #}
+                                    <th>Discount</th> {# Changed from 折扣 #}
+                                    <th>Actions</th> {# Changed from 操作 #}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for order in orders %}
+                                <tr>
+                                    <td>{{ order.OrderID }}</td>
+                                    <td>{{ order.OrderDate }}</td>
+                                    <td>{{ order.MenuItemName }}</td> {# Assuming this shows items #}
+                                    <td>￥{{ order.OrderPayment }}</td> {# Kept currency symbol #}
+                                    <td>{{ order.OrderDiscount }}%</td>
+                                    <td>
+                                        <a href="{{ url_for('view_order', order_id=order.OrderID) }}" class="btn btn-info btn-sm">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% else %}
+                    <div class="text-center p-4">
+                        <i class="fas fa-shopping-cart fa-3x text-gray-300 mb-3"></i>
+                        <p>No order history for this customer.</p> {# Changed from 该客户暂无订单记录。 #}
+                        <a href="{{ url_for('new_order') }}" class="btn btn-primary btn-sm">Create Order</a> {# Changed from 创建订单 #}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Customer Reviews -->
+        <div class="col-lg-4">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 bg-info">
+                    <h6 class="m-0 font-weight-bold text-white">
+                        <i class="fas fa-comments me-1"></i>Customer Reviews
+                    </h6>
+                </div>
+                <div class="card-body">
+                    {% if reviews %}
+                    <div class="reviews-container" style="max-height: 400px; overflow-y: auto;"> {# Added style for potential scroll #}
+                        {% for review in reviews %}
+                        <div class="review-item mb-3 p-3 border-bottom">
+                            <div class="review-date small text-muted mb-1">{{ review.ReviewDate }}</div>
+                            <div class="review-content">{{ review.ReviewContext }}</div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <div class="text-center p-4">
+                        <i class="fas fa-comment-slash fa-3x text-gray-300 mb-3"></i>
+                        <p>No review history for this customer.</p> {# Changed from 该客户暂无评论记录。 #}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

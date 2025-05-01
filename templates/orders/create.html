@@ -1,0 +1,288 @@
+{% extends 'base.html' %}
+
+{% block title %}Create New Order - Margaret Restaurant Management System{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Page Title and Action Buttons -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Create New Order</h1>
+        <a href="{{ url_for('order_list') }}" class="btn btn-sm btn-secondary">
+            <i class="fas fa-arrow-left me-1"></i>Back to Order List
+        </a>
+    </div>
+
+    <!-- Order Form Card -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 bg-success">
+            <h6 class="m-0 font-weight-bold text-white">
+                <i class="fas fa-cart-plus me-1"></i>New Order Information
+            </h6>
+        </div>
+        <div class="card-body">
+            <form method="post" id="orderForm">
+                <div class="row">
+                    <!-- Customer Information -->
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="customer_id" class="form-label">Select Customer*</label>
+                            <div class="input-group">
+                                <select class="form-select" id="customer_id" name="customer_id" required>
+                                    <option value="">-- Select Customer --</option>
+                                    {% for customer in customers %}
+                                    <option value="{{ customer.CustomerID }}">
+                                        {{ customer.CustomerFirstName }} {{ customer.CustomerLastName }}
+                                    </option>
+                                    {% endfor %}
+                                </select>
+                                <a href="{{ url_for('new_customer') }}" class="btn btn-outline-primary" target="_blank">
+                                    <i class="fas fa-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="payment" class="form-label">Payment Method*</label>
+                            <select class="form-select" id="payment" name="payment" required>
+                                <option value="Cash">Cash</option>
+                                <option value="Credit Card">Credit Card</option>
+                                <option value="Debit Card">Debit Card</option>
+                                <option value="Mobile Payment">Mobile Payment</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="discount" class="form-label">Discount(%)</label>
+                            <input type="number" class="form-control" id="discount" name="discount" min="0" max="100" value="0">
+                            <div class="form-text">Enter a number between 0-100 to represent the discount percentage.</div>
+                        </div>
+                    </div>
+
+                    <!-- Menu Item Information -->
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="menu_item_id" class="form-label">Select Menu Item*</label>
+                            <select class="form-select" id="menu_item_id" name="menu_item_id" required>
+                                <option value="">-- Select Menu Item --</option>
+                                {% for item in menu_items %}
+                                <option value="{{ item.MenuItemID }}" data-price="{{ item.Price }}">
+                                    {{ item.MenuItemName }} - ￥{{ item.Price }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="quantity" class="form-label">Quantity*</label>
+                            <input type="number" class="form-control" id="quantity" min="1" value="1">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="order_total" class="form-label">Order Total*</label>
+                            <div class="input-group">
+                                <span class="input-group-text">￥</span>
+                                <input type="text" class="form-control" id="order_total" readonly>
+                                <!-- Hidden field for submission -->
+                                <input type="hidden" id="amount" name="amount" value="0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="note" class="form-label">Note</label>
+                    <textarea class="form-control" id="note" name="note" rows="3"></textarea>
+                </div>
+
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                    <button type="reset" class="btn btn-outline-secondary me-md-2">
+                        <i class="fas fa-undo me-1"></i>Reset
+                    </button>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-check me-1"></i>Submit Order
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Order Preview Card -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 bg-info">
+            <h6 class="m-0 font-weight-bold text-white">
+                <i class="fas fa-eye me-1"></i>Order Preview
+            </h6>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="mb-3">Customer Information</h5>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th width="30%">Customer Name</th>
+                            <td id="preview-customer">-</td>
+                        </tr>
+                        <tr>
+                            <th>Payment Method</th>
+                            <td id="preview-payment">-</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="mb-3">Order Details</h5>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th width="30%">Menu Item</th>
+                            <td id="preview-menu-item">-</td>
+                        </tr>
+                        <tr>
+                            <th>Quantity</th>
+                            <td id="preview-quantity">1</td>
+                        </tr>
+                        <tr>
+                            <th>Discount</th>
+                            <td id="preview-discount">0%</td>
+                        </tr>
+                        <tr>
+                            <th>Total Amount</th>
+                            <td id="preview-total" class="fw-bold text-success">￥0.00</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="mt-3">
+                <h5>Note</h5>
+                <div id="preview-note" class="p-2 border rounded bg-light">None</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get form elements
+        const form = document.getElementById('orderForm');
+        const customerSelect = document.getElementById('customer_id');
+        const menuItemSelect = document.getElementById('menu_item_id');
+        const quantityInput = document.getElementById('quantity');
+        const discountInput = document.getElementById('discount');
+        const totalDisplay = document.getElementById('order_total');
+        const amountInput = document.getElementById('amount');
+        const paymentSelect = document.getElementById('payment');
+        const noteTextarea = document.getElementById('note');
+
+        // Get preview elements
+        const previewCustomer = document.getElementById('preview-customer');
+        const previewMenuItem = document.getElementById('preview-menu-item');
+        const previewQuantity = document.getElementById('preview-quantity');
+        const previewDiscount = document.getElementById('preview-discount');
+        const previewTotal = document.getElementById('preview-total');
+        const previewPayment = document.getElementById('preview-payment');
+        const previewNote = document.getElementById('preview-note');
+
+        // Calculate order total and update preview
+        function updateOrderTotal() {
+            // Menu item price
+            const selectedMenuItem = menuItemSelect.options[menuItemSelect.selectedIndex];
+            const price = selectedMenuItem && selectedMenuItem.dataset.price
+                ? parseFloat(selectedMenuItem.dataset.price)
+                : 0;
+
+            // Quantity
+            const quantity = parseInt(quantityInput.value) || 1;
+
+            // Discount
+            const discount = parseFloat(discountInput.value) || 0;
+            const discountMultiplier = (100 - discount) / 100;
+
+            // Calculate total
+            const total = price * quantity * discountMultiplier;
+
+            // Update display
+            totalDisplay.value = total.toFixed(2);
+            amountInput.value = total.toFixed(2);
+
+            // Update preview
+            previewQuantity.textContent = quantity;
+            previewDiscount.textContent = discount + '%';
+            previewTotal.textContent = '￥' + total.toFixed(2);
+        }
+
+        // Update customer preview
+        customerSelect.addEventListener('change', function() {
+            const selectedOption = this.options[this.selectedIndex];
+            previewCustomer.textContent = selectedOption.text !== '-- Select Customer --'
+                ? selectedOption.text
+                : '-';
+        });
+
+        // Update menu item preview
+        menuItemSelect.addEventListener('change', function() {
+            const selectedOption = this.options[this.selectedIndex];
+            previewMenuItem.textContent = selectedOption.text !== '-- Select Menu Item --'
+                ? selectedOption.text
+                : '-';
+            updateOrderTotal();
+        });
+
+        // Update payment method preview
+        paymentSelect.addEventListener('change', function() {
+            previewPayment.textContent = this.value;
+        });
+
+        // Update note preview
+        noteTextarea.addEventListener('input', function() {
+            previewNote.textContent = this.value.trim() ? this.value : 'None';
+        });
+
+        // Listen for quantity changes
+        quantityInput.addEventListener('input', updateOrderTotal);
+
+        // Listen for discount changes
+        discountInput.addEventListener('input', updateOrderTotal);
+
+        // Form validation
+        form.addEventListener('submit', function(event) {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                // Show validation feedback
+                form.classList.add('was-validated');
+                return;
+            }
+
+            // Ensure order total is greater than 0
+            if (parseFloat(amountInput.value) <= 0) {
+                event.preventDefault();
+                alert('Order total must be greater than 0');
+                return;
+            }
+        });
+
+        // Check if there is a preselected menu item from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const preselectedMenuItemId = urlParams.get('menu_item_id');
+
+        if (preselectedMenuItemId) {
+            // Preselect menu item
+            for (let i = 0; i < menuItemSelect.options.length; i++) {
+                if (menuItemSelect.options[i].value === preselectedMenuItemId) {
+                    menuItemSelect.selectedIndex = i;
+
+                    // Trigger the change event to update the preview
+                    const event = new Event('change');
+                    menuItemSelect.dispatchEvent(event);
+                    break;
+                }
+            }
+        }
+
+        // Initialize calculation
+        updateOrderTotal();
+    });
+</script>
+{% endblock %}

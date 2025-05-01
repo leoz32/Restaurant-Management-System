@@ -1,0 +1,298 @@
+{% extends "base.html" %}
+
+{% block title %}{{ report_name }}{% endblock %}
+
+{% block styles %}
+<style>
+    .chart-container {
+        position: relative;
+        height: 300px;
+        margin-bottom: 20px;
+    }
+    .summary-card {
+        border-left: 4px solid;
+        min-height: 100px;
+    }
+    .summary-value {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .summary-label {
+        color: #6c757d;
+        font-size: 14px;
+    }
+    .best-seller {
+        background-color: rgba(76, 175, 80, 0.1);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-4">
+    <h1 class="mt-4">{{ report_name }}</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="{{ url_for('report_list') }}">Reports</a></li>
+        <li class="breadcrumb-item active">{{ report_name }}</li>
+    </ol>
+    
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        <i class="fas fa-exclamation-triangle me-2"></i>{{ error }}
+    </div>
+    {% else %}
+    
+    <!-- Menu Summary Cards -->
+    <div class="row">
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card summary-card" style="border-color: #4CAF50;">
+                <div class="card-body">
+                    <div class="summary-label">Total Orders</div>
+                    <div class="summary-value">{{ total_orders }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card summary-card" style="border-color: #2196F3;">
+                <div class="card-body">
+                    <div class="summary-label">Total Sales</div>
+                    <div class="summary-value">${{ total_sales|round(2) }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card summary-card" style="border-color: #FF9800;">
+                <div class="card-body">
+                    <div class="summary-label">Average Item Price</div>
+                    <div class="summary-value">${{ avg_item_price|round(2) }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Top 10 Items Chart -->
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar me-1"></i>
+                    Top 10 Menu Items by Sales
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="topItemsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-pie me-1"></i>
+                    Sales by Category
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Category Analysis Table -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    Category Analysis
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Order Count</th>
+                                <th>Total Sales</th>
+                                <th>Average Price</th>
+                                <th>% of Total Sales</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in secondary_data %}
+                            <tr>
+                                <td>{{ row.Category if row.Category else 'Uncategorized' }}</td>
+                                <td>{{ row.OrderCount }}</td>
+                                <td>${{ row.TotalSales|round(2) }}</td>
+                                <td>${{ row.AveragePrice|round(2) }}</td>
+                                <td>{{ ((row.TotalSales / total_sales) * 100)|round(1) if total_sales > 0 else 0 }}%</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- All Menu Items Table -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-utensils me-1"></i>
+                    All Menu Items Performance
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Order Count</th>
+                                <th>Total Sales</th>
+                                <th>% of Total Sales</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in raw_data %}
+                            <tr {% if loop.index <= 3 %}class="best-seller"{% endif %}>
+                                <td>{{ row.MenuItemName }}</td>
+                                <td>{{ row.Category if row.Category else 'Uncategorized' }}</td>
+                                <td>${{ row.Price|round(2) }}</td>
+                                <td>{{ row.OrderCount }}</td>
+                                <td>${{ row.TotalSales|round(2) }}</td>
+                                <td>{{ ((row.TotalSales / total_sales) * 100)|round(1) if total_sales > 0 else 0 }}%</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer small text-muted">
+                    <i class="fas fa-info-circle me-1"></i>
+                    Rows highlighted in green are your top 3 best-selling items.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        {% if not error %}
+        // Top 10 Items Chart
+        const topItemsData = {{ chart_data|safe }};
+        const topItemsCtx = document.getElementById('topItemsChart').getContext('2d');
+        
+        new Chart(topItemsCtx, {
+            type: 'bar',
+            data: {
+                labels: topItemsData.labels,
+                datasets: [{
+                    label: 'Total Sales',
+                    data: topItemsData.values,
+                    backgroundColor: 'rgba(75, 192, 192, 0.7)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Sales ($)'
+                        }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.x !== null) {
+                                    label += '$' + context.parsed.x.toFixed(2);
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Category Chart
+        const categoryData = {{ secondary_chart|safe }};
+        const categoryCtx = document.getElementById('categoryChart').getContext('2d');
+        
+        new Chart(categoryCtx, {
+            type: 'pie',
+            data: {
+                labels: categoryData.labels,
+                datasets: [{
+                    data: categoryData.values,
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.7)',
+                        'rgba(54, 162, 235, 0.7)',
+                        'rgba(255, 206, 86, 0.7)',
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(153, 102, 255, 0.7)',
+                        'rgba(255, 159, 64, 0.7)',
+                        'rgba(199, 199, 199, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(199, 199, 199, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                label += '$' + context.raw.toFixed(2);
+                                
+                                // Calculate percentage
+                                const total = context.dataset.data.reduce((sum, value) => sum + value, 0);
+                                const percentage = ((context.raw / total) * 100).toFixed(1);
+                                label += ' (' + percentage + '%)';
+                                
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        {% endif %}
+    });
+</script>
+{% endblock %}

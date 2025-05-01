@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% block title %}Reports{% endblock %}
+
+{% block styles %}
+<style>
+    .report-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+    }
+    .report-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .report-icon {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+        color: #2196F3;
+    }
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .report-description {
+        margin-top: 10px;
+        color: #6c757d;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Reports and Analytics</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+        <li class="breadcrumb-item active">Reports</li>
+    </ol>
+    
+    <div class="row">
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card report-card">
+                <div class="card-body">
+                    <div class="report-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h5 class="card-title">Sales Report</h5>
+                    <p class="report-description">View sales trends, top-selling items, and revenue analysis</p>
+                    <a href="{{ url_for('view_report', report_id='sales') }}" class="btn btn-primary mt-auto">View Report</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card report-card">
+                <div class="card-body">
+                    <div class="report-icon">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <h5 class="card-title">Inventory Report</h5>
+                    <p class="report-description">Monitor inventory levels, costs, and low stock alerts</p>
+                    <a href="{{ url_for('view_report', report_id='inventory') }}" class="btn btn-primary mt-auto">View Report</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card report-card">
+                <div class="card-body">
+                    <div class="report-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h5 class="card-title">Customer Analysis</h5>
+                    <p class="report-description">Analyze customer demographics, ordering patterns, and loyalty</p>
+                    <a href="{{ url_for('view_report', report_id='customer') }}" class="btn btn-primary mt-auto">View Report</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card report-card">
+                <div class="card-body">
+                    <div class="report-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h5 class="card-title">Staff Performance</h5>
+                    <p class="report-description">Review staff productivity, service metrics, and work hours</p>
+                    <a href="{{ url_for('view_report', report_id='staff') }}" class="btn btn-primary mt-auto">View Report</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card report-card">
+                <div class="card-body">
+                    <div class="report-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h5 class="card-title">Sales Forecast</h5>
+                    <p class="report-description">View predictive analytics for customers and revenue</p>
+                    <a href="{{ url_for('view_report', report_id='forecast') }}" class="btn btn-primary mt-auto">View Report</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card report-card">
+                <div class="card-body">
+                    <div class="report-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h5 class="card-title">Menu Performance</h5>
+                    <p class="report-description">Analyze menu item popularity, profitability, and trends</p>
+                    <a href="{{ url_for('view_report', report_id='menu') }}" class="btn btn-primary mt-auto">View Report</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card report-card">
+                <div class="card-body">
+                    <div class="report-icon">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                    <h5 class="card-title">Food Waste Report</h5>
+                    <p class="report-description">Track and analyze food waste data</p>
+                    <a href="{{ url_for('view_report', report_id='food_waste') }}" class="btn btn-primary mt-auto">View Report</a>
+                </div>
+            </div>
+        </div>
+
+        {# --- 开始注释掉季节性分析卡片 ---
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card report-card">
+                <div class="card-body">
+                    <div class="report-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h5 class="card-title">Seasonal Analysis</h5>
+                    <p class="report-description">Examine seasonal patterns in sales and customer behaviors</p>
+                    <a href="{{ url_for('view_report', report_id='seasonal') }}" class="btn btn-primary mt-auto">View Report</a>
+                </div>
+            </div>
+        </div>
+        --- 结束注释 --- #}
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card report-card">
+                <div class="card-body">
+                    <div class="report-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h5 class="card-title">Financial Summary</h5>
+                    <p class="report-description">View comprehensive financial overview and key metrics</p>
+                    <a href="{{ url_for('view_report', report_id='financial') }}" class="btn btn-primary mt-auto">View Report</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

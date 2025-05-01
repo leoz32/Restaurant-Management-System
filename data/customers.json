@@ -1,0 +1,9590 @@
+[
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "CustomerID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerGender",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerPhone",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "CustomerEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "CustomerBirthday",
+        "<class 'datetime.datetime'>",
+        null,
+        19,
+        19,
+        0,
+        true
+      ],
+      [
+        "CustomerCard",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "OrderCount",
+        "<class 'int'>",
+        null,
+        10,
+        10,
+        0,
+        true
+      ]
+    ]
+  }
+]

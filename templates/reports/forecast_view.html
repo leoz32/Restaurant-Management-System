@@ -1,0 +1,340 @@
+{% extends "base.html" %}
+
+{% block title %}Order & Revenue Forecast{% endblock %}
+
+{% block styles %}
+<style>
+    .stat-card {
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        text-align: center;
+        min-width: 200px;
+        margin: 10px;
+    }
+    .stat-title {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 5px;
+    }
+    .stat-value {
+        font-size: 24px;
+        font-weight: bold;
+        color: #2196F3;
+    }
+    .forecast {
+        background-color: #e3f2fd;
+        border-left: 3px solid #2196F3;
+    }
+    .forecast .stat-title::after {
+        content: " (Forecast)";
+        font-style: italic;
+        color: #2196F3;
+    }
+    .chart-container {
+        position: relative;
+        height: 300px;
+        margin-bottom: 20px;
+    }
+    tr.forecast-row {
+        background-color: #e3f2fd;
+    }
+    .change-indicator {
+        display: inline-block;
+        margin-left: 5px;
+        font-size: 14px;
+    }
+    .change-up {
+        color: #4CAF50;
+    }
+    .change-down {
+        color: #F44336;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-4">
+    <h1 class="mt-4">{{ report_name }}</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="{{ url_for('report_list') }}">Reports</a></li>
+        <li class="breadcrumb-item active">{{ report_name }}</li>
+    </ol>
+    
+    {% if error %}
+    <div class="alert alert-danger">
+        <i class="fas fa-exclamation-circle me-2"></i>{{ error }}
+    </div>
+    {% else %}
+    
+    <!-- Statistics Overview -->
+    <div class="row mb-4">
+        <div class="col-xl-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-line me-1"></i>
+                    Forecast Overview
+                </div>
+                <div class="card-body">
+                    <div class="d-flex flex-wrap justify-content-around">
+                        {% if latest %}
+                        <div class="stat-card">
+                            <div class="stat-title">Today's Orders</div>
+                            <div class="stat-value">{{ latest.customers }}</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-title">Today's Revenue</div>
+                            <div class="stat-value">${{ "%.2f"|format(latest.revenue) }}</div>
+                        </div>
+                        {% endif %}
+                        
+                        {% if next_day %}
+                        <div class="stat-card forecast">
+                            <div class="stat-title">Tomorrow's Orders</div>
+                            <div class="stat-value">
+                                {{ next_day.customers }}
+                                {% if latest and next_day %}
+                                    {% set customer_change = ((next_day.customers - latest.customers) / latest.customers * 100)|round(1) if latest.customers > 0 else 0 %}
+                                    <span class="change-indicator {% if customer_change >= 0 %}change-up{% else %}change-down{% endif %}">
+                                        <i class="fas {% if customer_change >= 0 %}fa-arrow-up{% else %}fa-arrow-down{% endif %}"></i>
+                                        {{ customer_change|abs }}%
+                                    </span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="stat-card forecast">
+                            <div class="stat-title">Tomorrow's Revenue</div>
+                            <div class="stat-value">
+                                ${{ "%.2f"|format(next_day.revenue) }}
+                                {% if latest and next_day %}
+                                    {% set revenue_change = ((next_day.revenue - latest.revenue) / latest.revenue * 100)|round(1) if latest.revenue > 0 else 0 %}
+                                    <span class="change-indicator {% if revenue_change >= 0 %}change-up{% else %}change-down{% endif %}">
+                                        <i class="fas {% if revenue_change >= 0 %}fa-arrow-up{% else %}fa-arrow-down{% endif %}"></i>
+                                        {{ revenue_change|abs }}%
+                                    </span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Forecast Summary -->
+    <div class="row mb-4">
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-shopping-cart me-1"></i>
+                    Order Forecast
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="customerChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-dollar-sign me-1"></i>
+                    Revenue Forecast
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Forecast Data Table -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    Forecast Data
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Date</th>
+                                <th>Order Count</th>
+                                <th>Revenue</th>
+                                <th>Data Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in forecast_data %}
+                            <tr class="forecast-row">
+                                <td>{{ item.date }}</td>
+                                <td>{{ item.customers }}</td>
+                                <td>${{ "%.2f"|format(item.revenue) }}</td>
+                                <td><span class="badge bg-primary">Forecast</span></td>
+                            </tr>
+                            {% endfor %}
+                            
+                            {% for item in historical_data|safe_slice(-7, none) %}
+                            <tr>
+                                <td>{{ item.date }}</td>
+                                <td>{{ item.customers }}</td>
+                                <td>${{ "%.2f"|format(item.revenue) }}</td>
+                                <td><span class="badge bg-secondary">Historical</span></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer small text-muted">
+                    <i class="fas fa-info-circle me-1"></i>
+                    Forecast data is calculated using advanced predictive algorithms based on historical trends. Results are estimates and may vary based on actual conditions.
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        {% if not error %}
+        // Prepare data for charts
+        const historicalDates = {{ historical_data|map(attribute='date')|list|tojson }};
+        const historicalCustomers = {{ historical_data|map(attribute='customers')|list|tojson }};
+        const historicalRevenue = {{ historical_data|map(attribute='revenue')|list|tojson }};
+        
+        const forecastDates = {{ forecast_data|map(attribute='date')|list|tojson }};
+        const forecastCustomers = {{ forecast_data|map(attribute='customers')|list|tojson }};
+        const forecastRevenue = {{ forecast_data|map(attribute='revenue')|list|tojson }};
+        
+        // Customer Chart
+        const customerCtx = document.getElementById('customerChart').getContext('2d');
+        new Chart(customerCtx, {
+            type: 'line',
+            data: {
+                labels: [...historicalDates.slice(-7), ...forecastDates],
+                datasets: [{
+                    label: 'Historical',
+                    data: [...historicalCustomers.slice(-7), ...Array(forecastDates.length).fill(null)],
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.1)',
+                    fill: true,
+                    tension: 0.1
+                }, {
+                    label: 'Forecast',
+                    data: [...Array(historicalDates.slice(-7).length).fill(null), ...forecastCustomers],
+                    borderColor: 'rgba(153, 102, 255, 1)',
+                    backgroundColor: 'rgba(153, 102, 255, 0.1)',
+                    borderDash: [5, 5],
+                    fill: true,
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Order Count Forecast'
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Orders'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Date'
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Revenue Chart
+        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(revenueCtx, {
+            type: 'line',
+            data: {
+                labels: [...historicalDates.slice(-7), ...forecastDates],
+                datasets: [{
+                    label: 'Historical',
+                    data: [...historicalRevenue.slice(-7), ...Array(forecastDates.length).fill(null)],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.1)',
+                    fill: true,
+                    tension: 0.1
+                }, {
+                    label: 'Forecast',
+                    data: [...Array(historicalDates.slice(-7).length).fill(null), ...forecastRevenue],
+                    borderColor: 'rgba(255, 159, 64, 1)',
+                    backgroundColor: 'rgba(255, 159, 64, 0.1)',
+                    borderDash: [5, 5],
+                    fill: true,
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Revenue Forecast'
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (context.parsed.y !== null) {
+                                    label += ': $' + context.parsed.y.toFixed(2);
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Revenue ($)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Date'
+                        }
+                    }
+                }
+            }
+        });
+        {% endif %}
+    });
+</script>
+{% endblock %}

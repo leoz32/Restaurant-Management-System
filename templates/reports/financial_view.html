@@ -1,0 +1,429 @@
+{% extends "base.html" %}
+
+{% block title %}Financial Summary{% endblock %}
+
+{% block styles %}
+<style>
+    .financial-highlight {
+        background: linear-gradient(to right, #e3f2fd, #ffffff);
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+    .summary-card {
+        border-left: 4px solid;
+        min-height: 110px;
+    }
+    .summary-card.revenue {
+        border-color: #4CAF50;
+    }
+    .summary-card.expense {
+        border-color: #F44336;
+    }
+    .summary-card.profit {
+        border-color: #2196F3;
+    }
+    .summary-card.margin {
+        border-color: #FF9800;
+    }
+    .summary-value {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .summary-label {
+        color: #6c757d;
+        font-size: 14px;
+    }
+    .chart-container {
+        position: relative;
+        height: 300px;
+        margin-bottom: 20px;
+    }
+    .profit-positive {
+        color: #4CAF50;
+    }
+    .profit-negative {
+        color: #F44336;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-4">
+    <h1 class="mt-4">{{ report_name }}</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="{{ url_for('report_list') }}">Reports</a></li>
+        <li class="breadcrumb-item active">{{ report_name }}</li>
+    </ol>
+    
+    <!-- Financial Summary Cards -->
+    <div class="financial-highlight">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card summary-card revenue">
+                    <div class="card-body">
+                        <div class="summary-label">Total Revenue</div>
+                        <div class="summary-value">${{ financial_data|map(attribute='Revenue')|sum|round(2) }}</div>
+                        <div class="mt-2">
+                            <span class="badge bg-success">Year-to-Date</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card summary-card expense">
+                    <div class="card-body">
+                        <div class="summary-label">Total Expenses</div>
+                        <div class="summary-value">${{ financial_data|map(attribute='Expenses')|sum|round(2) }}</div>
+                        <div class="mt-2">
+                            <span class="badge bg-danger">Year-to-Date</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card summary-card profit">
+                    <div class="card-body">
+                        <div class="summary-label">Net Profit</div>
+                        <div class="summary-value {% if financial_data|map(attribute='Profit')|sum > 0 %}profit-positive{% else %}profit-negative{% endif %}">
+                            ${{ financial_data|map(attribute='Profit')|sum|round(2) }}
+                        </div>
+                        <div class="mt-2">
+                            <span class="badge {% if financial_data|map(attribute='Profit')|sum > 0 %}bg-success{% else %}bg-danger{% endif %}">Year-to-Date</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card summary-card margin">
+                    <div class="card-body">
+                        <div class="summary-label">Profit Margin</div>
+                        <div class="summary-value {% if (financial_data|map(attribute='Profit')|sum / financial_data|map(attribute='Revenue')|sum * 100) > 0 %}profit-positive{% else %}profit-negative{% endif %}">
+                            {{ (financial_data|map(attribute='Profit')|sum / financial_data|map(attribute='Revenue')|sum * 100)|round(1) if financial_data|map(attribute='Revenue')|sum > 0 else 0 }}%
+                        </div>
+                        <div class="mt-2">
+                            <span class="badge bg-info">Average</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Monthly Financial Data Chart -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-line me-1"></i>
+                    Monthly Financial Performance
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="financialChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <!-- Revenue by Category Chart -->
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-pie me-1"></i>
+                    Revenue by Category
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Profit Margin Trend -->
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-percentage me-1"></i>
+                    Monthly Profit Margin
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="marginChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Monthly Financial Details Table -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    Monthly Financial Details
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Month</th>
+                                <th>Revenue</th>
+                                <th>Expenses</th>
+                                <th>Profit</th>
+                                <th>Profit Margin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in financial_data %}
+                            <tr>
+                                <td>{{ item.Month }}</td>
+                                <td>${{ item.Revenue|round(2) }}</td>
+                                <td>${{ item.Expenses|round(2) }}</td>
+                                <td class="{% if item.Profit > 0 %}profit-positive{% else %}profit-negative{% endif %}">
+                                    ${{ item.Profit|round(2) }}
+                                </td>
+                                <td class="{% if item.ProfitMargin > 0 %}profit-positive{% else %}profit-negative{% endif %}">
+                                    {{ item.ProfitMargin|round(1) }}%
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr class="table-secondary">
+                                <th>Total</th>
+                                <th>${{ financial_data|map(attribute='Revenue')|sum|round(2) }}</th>
+                                <th>${{ financial_data|map(attribute='Expenses')|sum|round(2) }}</th>
+                                <th class="{% if financial_data|map(attribute='Profit')|sum > 0 %}profit-positive{% else %}profit-negative{% endif %}">
+                                    ${{ financial_data|map(attribute='Profit')|sum|round(2) }}
+                                </th>
+                                <th class="{% if (financial_data|map(attribute='Profit')|sum / financial_data|map(attribute='Revenue')|sum * 100) > 0 %}profit-positive{% else %}profit-negative{% endif %}">
+                                    {{ (financial_data|map(attribute='Profit')|sum / financial_data|map(attribute='Revenue')|sum * 100)|round(1) if financial_data|map(attribute='Revenue')|sum > 0 else 0 }}%
+                                </th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="card-footer small text-muted">
+                    <i class="fas fa-info-circle me-1"></i>
+                    Financial data is updated at the end of each business day.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Financial Chart (Bar and Line)
+        const financialData = {{ chart_data|safe }};
+        const financialCtx = document.getElementById('financialChart').getContext('2d');
+        
+        new Chart(financialCtx, {
+            type: 'bar',
+            data: {
+                labels: financialData.labels,
+                datasets: [
+                    {
+                        label: 'Revenue',
+                        data: financialData.datasets[0].data,
+                        backgroundColor: financialData.datasets[0].backgroundColor,
+                        borderColor: financialData.datasets[0].borderColor,
+                        borderWidth: 1,
+                        order: 2
+                    },
+                    {
+                        label: 'Expenses',
+                        data: financialData.datasets[1].data,
+                        backgroundColor: financialData.datasets[1].backgroundColor,
+                        borderColor: financialData.datasets[1].borderColor,
+                        borderWidth: 1,
+                        order: 3
+                    },
+                    {
+                        label: 'Profit',
+                        data: financialData.datasets[2].data,
+                        backgroundColor: 'transparent',
+                        borderColor: financialData.datasets[2].borderColor,
+                        borderWidth: 2,
+                        type: 'line',
+                        order: 1,
+                        tension: 0.1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Amount ($)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Month'
+                        }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += '$' + context.parsed.y.toFixed(2);
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Category Chart (Pie)
+        const categoryData = {{ category_chart|safe }};
+        const categoryCtx = document.getElementById('categoryChart').getContext('2d');
+        
+        new Chart(categoryCtx, {
+            type: 'pie',
+            data: {
+                labels: categoryData.labels,
+                datasets: [{
+                    data: categoryData.values,
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.7)',
+                        'rgba(54, 162, 235, 0.7)',
+                        'rgba(255, 206, 86, 0.7)',
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(153, 102, 255, 0.7)',
+                        'rgba(255, 159, 64, 0.7)',
+                        'rgba(199, 199, 199, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(199, 199, 199, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                const total = context.dataset.data.reduce((sum, value) => sum + value, 0);
+                                const percentage = ((context.raw / total) * 100).toFixed(1);
+                                
+                                label += '$' + context.raw.toFixed(2) + ' (' + percentage + '%)';
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Profit Margin Chart (Line)
+        const profitMargins = {{ financial_data|map(attribute='ProfitMargin')|list|tojson }};
+        const months = {{ financial_data|map(attribute='Month')|list|tojson }};
+        const marginCtx = document.getElementById('marginChart').getContext('2d');
+        
+        new Chart(marginCtx, {
+            type: 'line',
+            data: {
+                labels: months,
+                datasets: [{
+                    label: 'Profit Margin',
+                    data: profitMargins,
+                    fill: {
+                        target: 'origin',
+                        above: 'rgba(75, 192, 192, 0.2)',
+                        below: 'rgba(255, 99, 132, 0.2)'
+                    },
+                    borderColor: function(context) {
+                        const chart = context.chart;
+                        const {ctx, chartArea} = chart;
+                        
+                        if (!chartArea) {
+                            // This is called when the chart is initially being created
+                            return 'rgba(0, 0, 0, 1)';
+                        }
+                        
+                        return profitMargins[context.dataIndex] >= 0 ? 
+                            'rgba(75, 192, 192, 1)' : 
+                            'rgba(255, 99, 132, 1)';
+                    },
+                    tension: 0.1,
+                    pointBackgroundColor: function(context) {
+                        return profitMargins[context.dataIndex] >= 0 ? 
+                            'rgba(75, 192, 192, 1)' : 
+                            'rgba(255, 99, 132, 1)';
+                    }
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Profit Margin (%)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Month'
+                        }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += context.parsed.y.toFixed(1) + '%';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}

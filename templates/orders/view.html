@@ -1,0 +1,258 @@
+{% extends 'base.html' %}
+
+{% block title %}Order #{{ order.OrderID }} - Details{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Page Title and Actions -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Order Details #{{ order.OrderID }}</h1>
+        <div>
+            <a href="{{ url_for('order_list') }}" class="btn btn-sm btn-secondary">
+                <i class="fas fa-arrow-left me-1"></i>Back to Order List
+            </a>
+            <button type="button" class="btn btn-sm btn-primary" id="printBtn">
+                <i class="fas fa-print me-1"></i>Print Order
+            </button>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Order Basic Information -->
+        <div class="col-lg-8">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 bg-primary">
+                    <h6 class="m-0 font-weight-bold text-white">
+                        <i class="fas fa-info-circle me-1"></i>Order Information
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <table class="table table-borderless">
+                                <tr>
+                                    <th width="40%">Order ID:</th>
+                                    <td>{{ order.OrderID }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Order Date:</th>
+                                    <td>{{ order.OrderDate }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Customer:</th>
+                                    <td>{{ order.CustomerName }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Menu Item:</th>
+                                    <td>{{ order.MenuItemName }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <table class="table table-borderless">
+                                <tr>
+                                    <th width="40%">Price:</th>
+                                    <td>￥{{ order.Price }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Discount:</th>
+                                    <td>{{ order.OrderDiscount }}%</td>
+                                </tr>
+                                <tr>
+                                    <th>Payment:</th>
+                                    <td><strong class="text-success">￥{{ order.OrderPayment }}</strong></td>
+                                </tr>
+                                <tr>
+                                    <th>Staff:</th>
+                                    <td>{{ order.StaffName }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    {% if order.Note %}
+                    <div class="alert alert-info mt-3">
+                        <i class="fas fa-sticky-note me-2"></i><strong>Note:</strong> {{ order.Note }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Information -->
+        <div class="col-lg-4">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 bg-success">
+                    <h6 class="m-0 font-weight-bold text-white">
+                        <i class="fas fa-credit-card me-1"></i>Payment Information
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="text-center mb-3">
+                        <span class="display-4 text-success">￥{{ order.OrderPayment }}</span>
+                        <p class="text-muted">Total Paid</p>
+                    </div>
+
+                    <hr>
+
+                    <table class="table table-borderless">
+                        <tr>
+                            <th>Receivable ID:</th>
+                            <td>{{ order.ReceivableID }}</td>
+                        </tr>
+                        <tr>
+                            <th>Receivable Amount:</th>
+                            <td>￥{{ order.ReceivableAmount }}</td>
+                        </tr>
+                        <tr>
+                            <th>Receivable Discount:</th>
+                            <td>{{ order.ReceivableDiscount }}%</td>
+                        </tr>
+                        <tr>
+                            <th>Payment Status:</th>
+                            <td>
+                                <span class="badge bg-success">Paid</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Related Information -->
+    <div class="row">
+        <!-- Customer Information -->
+        <div class="col-lg-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 bg-info">
+                    <h6 class="m-0 font-weight-bold text-white">
+                        <i class="fas fa-user me-1"></i>Customer Information
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="text-center mb-3">
+                        <i class="fas fa-user-circle fa-4x text-info mb-3"></i>
+                        <h5>{{ order.CustomerName }}</h5>
+                        <p>
+                            <a href="{{ url_for('view_customer', customer_id=order.CustomerID) }}" class="btn btn-sm btn-outline-info">
+                                View Customer Details
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Staff Information -->
+        <div class="col-lg-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 bg-warning">
+                    <h6 class="m-0 font-weight-bold text-dark">
+                        <i class="fas fa-user-tie me-1"></i>Staff
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="text-center mb-3">
+                        <i class="fas fa-user-tie fa-4x text-warning mb-3"></i>
+                        <h5>{{ order.StaffName }}</h5>
+                        <p>
+                            <a href="{{ url_for('view_staff', staff_id=order.StaffID) }}" class="btn btn-sm btn-outline-warning">
+                                View Staff Details
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Print Template - Hidden for printing -->
+<div id="printTemplate" style="display: none;">
+    <div style="max-width: 800px; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif;">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <h2 style="margin: 0;">Margaret Restaurant</h2>
+            <p style="margin: 5px 0;">Address: XX St, XX City, XX</p>
+            <p style="margin: 5px 0;">Phone: 123-456-7890</p>
+        </div>
+
+        <div style="border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 20px;">
+            <h3 style="margin: 0 0 10px 0;">Order Details #{{ order.OrderID }}</h3>
+            <p style="margin: 5px 0;"><strong>Date:</strong> {{ order.OrderDate }}</p>
+            <p style="margin: 5px 0;"><strong>Staff:</strong> {{ order.StaffName }}</p>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <h4 style="margin: 0 0 10px 0;">Customer Information</h4>
+            <p style="margin: 5px 0;"><strong>Name:</strong> {{ order.CustomerName }}</p>
+            <p style="margin: 5px 0;"><strong>ID:</strong> {{ order.CustomerID }}</p>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <h4 style="margin: 0 0 10px 0;">Order Items</h4>
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <th style="text-align: left; padding: 8px 0;">Menu Item</th>
+                        <th style="text-align: right; padding: 8px 0;">Price</th>
+                        <th style="text-align: right; padding: 8px 0;">Quantity</th>
+                        <th style="text-align: right; padding: 8px 0;">Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="text-align: left; padding: 8px 0;">{{ order.MenuItemName }}</td>
+                        <td style="text-align: right; padding: 8px 0;">￥{{ order.Price }}</td>
+                        <td style="text-align: right; padding: 8px 0;">1</td>
+                        <td style="text-align: right; padding: 8px 0;">￥{{ order.Price }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="margin-bottom: 20px; text-align: right;">
+            <p style="margin: 5px 0;"><strong>Subtotal:</strong> ￥{{ order.Price }}</p>
+            <p style="margin: 5px 0;"><strong>Discount:</strong> {{ order.OrderDiscount }}%</p>
+            <p style="margin: 5px 0; font-size: 1.2em;"><strong>Total:</strong> ￥{{ order.OrderPayment }}</p>
+        </div>
+
+        <div style="border-top: 1px solid #ddd; padding-top: 20px; text-align: center;">
+            <p style="margin: 5px 0;">Thank you for your visit! We look forward to seeing you again.</p>
+            <p style="margin: 5px 0;">Print Time: {{ now }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Handle Print Functionality
+        document.getElementById('printBtn').addEventListener('click', function() {
+            const printContent = document.getElementById('printTemplate').innerHTML;
+            const originalContent = document.body.innerHTML;
+
+            document.body.innerHTML = printContent;
+            window.print();
+            document.body.innerHTML = originalContent;
+
+            // Restore event listeners (after print, to avoid issues after DOM replacement)
+            setTimeout(function() {
+                document.getElementById('printBtn').addEventListener('click', function() {
+                    // Rebind the print functionality
+                    const printContent = document.getElementById('printTemplate').innerHTML;
+                    const originalContent = document.body.innerHTML;
+
+                    document.body.innerHTML = printContent;
+                    window.print();
+                    document.body.innerHTML = originalContent;
+
+                    // Refresh the page to restore full functionality after replacing the DOM
+                    location.reload();
+                });
+            }, 1000);
+        });
+    });
+</script>
+{% endblock %}

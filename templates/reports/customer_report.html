@@ -1,0 +1,348 @@
+{% extends "base.html" %}
+
+{% block title %}Customer Analysis{% endblock %}
+
+{% block styles %}
+<style>
+    .chart-container {
+        position: relative;
+        height: 300px;
+        margin-bottom: 20px;
+    }
+    .customer-card {
+        border-left: 4px solid;
+        min-height: 100px;
+    }
+    .total-card {
+        border-color: #4CAF50;
+    }
+    .active-card {
+        border-color: #2196F3;
+    }
+    .spending-card {
+        border-color: #FF9800;
+    }
+    .summary-value {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .summary-label {
+        color: #6c757d;
+        font-size: 14px;
+    }
+    .top-customer {
+        background-color: rgba(76, 175, 80, 0.1);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Customer Analysis</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="{{ url_for('report_list') }}">Reports</a></li>
+        <li class="breadcrumb-item active">Customer Analysis</li>
+    </ol>
+
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        <i class="fas fa-exclamation-triangle me-2"></i>{{ error }}
+    </div>
+    {% else %}
+
+    <!-- Customer Summary Cards -->
+    <div class="row">
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card customer-card total-card">
+                <div class="card-body">
+                    <div class="summary-label">Total Customers</div>
+                    <div class="summary-value">{{ raw_data|map(attribute='CustomerCount')|sum }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card customer-card active-card">
+                <div class="card-body">
+                    <div class="summary-label">Active Customers</div>
+                    <div class="summary-value">{{ secondary_data|length if secondary_data else 0 }}</div>
+                    <div class="mt-2">
+                        <span class="badge bg-primary">At least 1 order</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card customer-card spending-card">
+                <div class="card-body">
+                    <div class="summary-label">Average Customer Spending</div>
+                    {% set total_spent = secondary_data|map(attribute='TotalSpent')|sum %}
+                    {% set active_customers = secondary_data|length %}
+                    <div class="summary-value">
+                        ${{ (total_spent / active_customers)|round(2) if active_customers > 0 else 0 }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customer Distribution Chart -->
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-pie me-1"></i>
+                    Customer Type Distribution
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="customerTypeChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar me-1"></i>
+                    Customer Order Count Distribution
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="orderDistributionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customer Type Summary -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    Customer Type Statistics
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Customer Type</th>
+                                <th>Number of Customers</th>
+                                <th>Percentage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in raw_data %}
+                            <tr>
+                                <td>{{ row.CustomerType if row.CustomerType else "Uncategorized" }}</td>
+                                <td>{{ row.CustomerCount }}</td>
+                                {% set total_count = raw_data|map(attribute='CustomerCount')|sum %}
+                                <td>{{ ((row.CustomerCount / total_count) * 100)|round(1) if total_count > 0 else 0 }}%</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr class="table-secondary">
+                                <th>Total</th>
+                                <th>{{ raw_data|map(attribute='CustomerCount')|sum }}</th>
+                                <th>100%</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top Customers Table -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-users me-1"></i>
+                    Active Customer List
+                </div>
+                <div class="card-body">
+                    {% if secondary_data and secondary_data|length > 0 %}
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Customer Name</th>
+                                <th>Order Count</th>
+                                <th>Total Spent</th>
+                                <th>Average Order Value</th>
+                                <th>Last Order Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in secondary_data %}
+                            <tr {% if loop.index <= 3 %}class="top-customer"{% endif %}>
+                                <td>{{ row.CustomerName }}</td>
+                                <td>{{ row.OrderCount }}</td>
+                                <td>${{ row.TotalSpent|round(2) }}</td>
+                                <td>${{ (row.TotalSpent / row.OrderCount)|round(2) if row.OrderCount > 0 else 0 }}</td>
+                                <td>{{ row.LastOrderDate }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <div class="small text-muted mt-3">
+                        <i class="fas fa-info-circle me-1"></i>
+                        Green background highlights your top 3 high-spending customers.
+                    </div>
+                    {% else %}
+                    <div class="alert alert-info" role="alert">
+                        <i class="fas fa-info-circle me-2"></i>No active customer data available.
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        {% if not error %}
+        // Customer Type Chart
+        const typeData = {{ chart_data|safe }};
+        const typeCtx = document.getElementById('customerTypeChart').getContext('2d');
+
+        new Chart(typeCtx, {
+            type: 'pie',
+            data: {
+                labels: typeData.labels.map(label => label || "Uncategorized"),
+                datasets: [{
+                    data: typeData.values,
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.7)',
+                        'rgba(54, 162, 235, 0.7)',
+                        'rgba(255, 206, 86, 0.7)',
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(153, 102, 255, 0.7)',
+                        'rgba(255, 159, 64, 0.7)',
+                        'rgba(199, 199, 199, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(199, 199, 199, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed !== null) {
+                                    let value = context.parsed;
+                                    let total = context.dataset.data.reduce((acc, val) => acc + val, 0);
+                                    let percentage = ((value / total) * 100).toFixed(1);
+                                    label += value + ' Customers (' + percentage + '%)';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Customer Order Distribution
+        const orderCtx = document.getElementById('orderDistributionChart').getContext('2d');
+        {% if secondary_data %}
+        // Process data for order distribution chart
+        const orderCounts = {};
+        {% for row in secondary_data %}
+        const count = {{ row.OrderCount }};
+        orderCounts[count] = (orderCounts[count] || 0) + 1;
+        {% endfor %}
+
+        const orderLabels = Object.keys(orderCounts).sort((a, b) => parseInt(a) - parseInt(b));
+        const orderValues = orderLabels.map(key => orderCounts[key]);
+
+        new Chart(orderCtx, {
+            type: 'bar',
+            data: {
+                labels: orderLabels.map(label => label + " Orders"),
+                datasets: [{
+                    label: 'Number of Customers',
+                    data: orderValues,
+                    backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Customers'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Number of Orders'
+                        }
+                    }
+                }
+            }
+        });
+        {% else %}
+        // Show empty chart if no secondary data
+        new Chart(orderCtx, {
+            type: 'bar',
+            data: {
+                labels: ["No Data"],
+                datasets: [{
+                    label: 'Number of Customers',
+                    data: [0],
+                    backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Customers'
+                        }
+                    }
+                }
+            }
+        });
+        {% endif %}
+        {% endif %}
+    });
+</script>
+{% endblock %}

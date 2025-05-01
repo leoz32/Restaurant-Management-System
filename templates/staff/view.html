@@ -1,0 +1,279 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ staff.StaffFirstName }} {{ staff.StaffLastName }} - Staff Details{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Page Heading and Action Buttons -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Staff Details</h1>
+        <div>
+            <a href="{{ url_for('staff_list') }}" class="btn btn-sm btn-secondary">
+                <i class="fas fa-arrow-left me-1"></i>Back to Staff List
+            </a>
+            <button class="btn btn-sm btn-primary" disabled>
+                <i class="fas fa-edit me-1"></i>Edit Staff
+                <small class="text-white-50">(Feature in development)</small>
+            </button>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Staff Basic Information -->
+        <div class="col-lg-4">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 bg-primary">
+                    <h6 class="m-0 font-weight-bold text-white">
+                        <i class="fas fa-user me-1"></i>Basic Information
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="text-center mb-4">
+                        <img class="img-profile rounded-circle mb-3" src="https://via.placeholder.com/150" alt="{{ staff.StaffFirstName }} {{ staff.StaffLastName }}">
+                        <h5 class="mb-1">{{ staff.StaffFirstName }} {{ staff.StaffLastName }}</h5>
+                        <div>
+                            {% if staff.StaffPosition == 'Manager' %}
+                            <span class="badge bg-danger">Manager</span>
+                            {% elif staff.StaffPosition == 'Chef' %}
+                            <span class="badge bg-warning text-dark">Chef</span>
+                            {% elif staff.StaffPosition == 'Waiter' %}
+                            <span class="badge bg-info">Waiter</span>
+                            {% elif staff.StaffPosition == 'Cashier' %}
+                            <span class="badge bg-success">Cashier</span>
+                            {% else %}
+                            <span class="badge bg-secondary">{{ staff.StaffPosition }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-lg-4 font-weight-bold text-primary">Staff ID:</div>
+                        <div class="col-lg-8">{{ staff.StaffID }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-4 font-weight-bold text-primary">Phone:</div>
+                        <div class="col-lg-8">{{ staff.StaffPhone }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-4 font-weight-bold text-primary">Email:</div>
+                        <div class="col-lg-8">
+                            <a href="mailto:{{ staff.StaffEmail }}">{{ staff.StaffEmail }}</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 font-weight-bold text-primary">Address:</div>
+                        <div class="col-lg-8">{{ staff.StaffAddress }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Work Statistics -->
+        <div class="col-lg-8">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 bg-info">
+                    <h6 class="m-0 font-weight-bold text-white">
+                        <i class="fas fa-chart-line me-1"></i>Work Statistics
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <!-- Orders Processed -->
+                        <div class="col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Orders Processed</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ orders|length }}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-shopping-cart fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Total Hours Worked -->
+                        <div class="col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Total Hours Worked</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                {{ work_history|sum(attribute='StaffWorkHours') }} Hours
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clock fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Work Hours Chart -->
+                    <div class="chart-container" style="position: relative; height:250px;">
+                        <canvas id="workHoursChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Work History -->
+        <div class="col-lg-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 bg-warning">
+                    <h6 class="m-0 font-weight-bold text-dark">
+                        <i class="fas fa-clipboard-list me-1"></i>Work History
+                    </h6>
+                </div>
+                <div class="card-body">
+                    {% if work_history %}
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover" id="workHistoryTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Date</th>
+                                    <th>Hours Worked</th>
+                                    <th>Hourly Wage</th>
+                                    <th>Salary</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for work in work_history %}
+                                <tr>
+                                    <td>{{ work.StaffWorkingID }}</td>
+                                    <td>{{ work.WorkDate }}</td>
+                                    <td>{{ work.StaffWorkHours }} Hours</td>
+                                    <td>￥{{ work.StaffWage }}/hour</td>
+                                    <td>￥{{ work.StaffWage * work.StaffWorkHours }}</td>
+                                    <td>
+                                        {% if work.PayableDatePaid %}
+                                        <span class="badge bg-success">Paid</span>
+                                        {% else %}
+                                        <span class="badge bg-warning text-dark">Pending</span>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% else %}
+                    <div class="text-center p-4">
+                        <i class="fas fa-exclamation-circle fa-3x text-warning mb-3"></i>
+                        <p>No work history found for this staff member.</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Order History -->
+        <div class="col-lg-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 bg-success">
+                    <h6 class="m-0 font-weight-bold text-white">
+                        <i class="fas fa-shopping-cart me-1"></i>Order History
+                    </h6>
+                </div>
+                <div class="card-body">
+                    {% if orders %}
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover" id="ordersTable">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Date</th>
+                                    <th>Customer</th>
+                                    <th>Menu Item</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for order in orders %}
+                                <tr>
+                                    <td>{{ order.OrderID }}</td>
+                                    <td>{{ order.OrderDate }}</td>
+                                    <td>{{ order.CustomerName }}</td>
+                                    <td>{{ order.MenuItemName }}</td>
+                                    <td>￥{{ order.OrderPayment }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% else %}
+                    <div class="text-center p-4">
+                        <i class="fas fa-exclamation-circle fa-3x text-success mb-3"></i>
+                        <p>No orders processed by this staff member.</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize DataTables
+        $('#workHistoryTable').DataTable({
+            // Default English localization will be used if language.url is removed or invalid
+            "order": [[1, 'desc']], // 按日期降序排列 (Comment remains unchanged as requested)
+            "pageLength": 5
+        });
+
+        $('#ordersTable').DataTable({
+             // Default English localization will be used if language.url is removed or invalid
+            "order": [[1, 'desc']], // 按日期降序排列 (Comment remains unchanged as requested)
+            "pageLength": 5
+        });
+
+        // Work Hours Chart
+        const dates = [];
+        const hours = [];
+
+        {% for work in work_history|sort(attribute='WorkDate') %}
+            dates.push("{{ work.WorkDate }}");
+            hours.push({{ work.StaffWorkHours }});
+        {% endfor %}
+
+        const ctx = document.getElementById('workHoursChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: dates,
+                datasets: [{
+                    label: 'Work Duration (Hours)', // Translated label
+                    data: hours,
+                    fill: false,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,7647 @@
+[
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  },
+  {
+    "cursor_description": [
+      [
+        "InventoryID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryType",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryAmount",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventoryQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ],
+      [
+        "InventorySupplierID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "InventoryPayableID",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "Description",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "SupplierName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactFirstName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactLastName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ContactEmail",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "ItemName",
+        "<class 'str'>",
+        null,
+        255,
+        255,
+        0,
+        true
+      ],
+      [
+        "MinimumQuantity",
+        "<class 'float'>",
+        null,
+        53,
+        53,
+        0,
+        true
+      ]
+    ]
+  }
+]

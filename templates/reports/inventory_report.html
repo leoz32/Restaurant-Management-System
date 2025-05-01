@@ -1,0 +1,334 @@
+{% extends "base.html" %}
+
+{% block title %}Inventory Report{% endblock %}
+
+{% block styles %}
+<style>
+    .chart-container {
+        position: relative;
+        height: 300px;
+        margin-bottom: 20px;
+    }
+    .inventory-card {
+        border-left: 4px solid;
+        min-height: 100px;
+    }
+    .count-card {
+        border-color: #4CAF50;
+    }
+    .value-card {
+        border-color: #2196F3;
+    }
+    .warning-card {
+        border-color: #F44336;
+    }
+    .summary-value {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .summary-label {
+        color: #6c757d;
+        font-size: 14px;
+    }
+    .low-stock {
+        background-color: rgba(244, 67, 54, 0.1);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Inventory Report</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="{{ url_for('report_list') }}">Reports</a></li>
+        <li class="breadcrumb-item active">Inventory Report</li>
+    </ol>
+
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        <i class="fas fa-exclamation-triangle me-2"></i>{{ error }}
+    </div>
+    {% else %}
+
+    <!-- Inventory Summary Cards -->
+    <div class="row">
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card inventory-card count-card">
+                <div class="card-body">
+                    <div class="summary-label">Number of Inventory Items</div>
+                    <div class="summary-value">{{ raw_data|map(attribute='ItemCount')|sum }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card inventory-card value-card">
+                <div class="card-body">
+                    <div class="summary-label">Total Inventory Value</div>
+                    <div class="summary-value">${{ raw_data|map(attribute='TotalAmount')|sum|round(2) }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card inventory-card warning-card">
+                <div class="card-body">
+                    <div class="summary-label">Low Stock Warnings</div>
+                    <div class="summary-value">{{ secondary_data|length if secondary_data else 0 }}</div>
+                    <div class="mt-2">
+                        <span class="badge bg-danger">Needs Replenishment</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inventory Distribution Chart -->
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-pie me-1"></i>
+                    Inventory Distribution by Type
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="inventoryTypeChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar me-1"></i>
+                    Inventory Value by Type
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="inventoryValueChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Low Stock Warnings -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card mb-4">
+                <div class="card-header bg-danger text-white">
+                    <i class="fas fa-exclamation-triangle me-1"></i>
+                    Low Stock Warnings
+                </div>
+                <div class="card-body">
+                    {% if secondary_data and secondary_data|length > 0 %}
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Material Name</th>
+                                <th>Type</th>
+                                <th>Current Quantity</th>
+                                <th>Minimum Required Quantity</th>
+                                <th>Supplier</th>
+                                <th>Contact Info</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in secondary_data %}
+                            <tr class="{% if row.InventoryQuantity == 0 %}low-stock{% endif %}">
+                                <td>{{ row.InventoryName }}</td>
+                                <td>{{ row.InventoryType }}</td>
+                                <td>{{ row.InventoryQuantity }}</td>
+                                <td>{{ row.MinimumQuantity }}</td>
+                                <td>{{ row.SupplierName }}</td>
+                                <td>{{ row.ContactEmail }}</td>
+                                <td>
+                                    {% if row.InventoryQuantity == 0 %}
+                                    <span class="badge bg-danger">Out of Stock</span>
+                                    {% elif row.InventoryQuantity <= row.MinimumQuantity * 0.5 %}
+                                    <span class="badge bg-warning">Urgent</span>
+                                    {% else %}
+                                    <span class="badge bg-info">Needs Replenishment</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <div class="alert alert-success" role="alert">
+                        <i class="fas fa-check-circle me-2"></i>There are currently no items with stock below the minimum required quantity.
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inventory Summary Table -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    Inventory Type Summary
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Inventory Type</th>
+                                <th>Number of Items</th>
+                                <th>Total Stock Quantity</th>
+                                <th>Total Stock Value</th>
+                                <th>Average Unit Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in raw_data %}
+                            <tr>
+                                <td>{{ row.InventoryType if row.InventoryType else "Uncategorized" }}</td>
+                                <td>{{ row.ItemCount }}</td>
+                                <td>{{ row.TotalQuantity }}</td>
+                                <td>${{ row.TotalAmount|round(2) }}</td>
+                                <td>${{ (row.TotalAmount / row.TotalQuantity)|round(2) if row.TotalQuantity > 0 else 0 }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr class="table-secondary">
+                                <th>Total</th>
+                                <th>{{ raw_data|map(attribute='ItemCount')|sum }}</th>
+                                <th>{{ raw_data|map(attribute='TotalQuantity')|sum }}</th>
+                                <th>${{ raw_data|map(attribute='TotalAmount')|sum|round(2) }}</th>
+                                <th>${{ (raw_data|map(attribute='TotalAmount')|sum / raw_data|map(attribute='TotalQuantity')|sum)|round(2) if raw_data|map(attribute='TotalQuantity')|sum > 0 else 0 }}</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        {% if not error %}
+        // Inventory Type Chart (Pie Chart for Value Distribution)
+        const typeData = {{ chart_data|safe }};
+        const typeCtx = document.getElementById('inventoryTypeChart').getContext('2d');
+
+        new Chart(typeCtx, {
+            type: 'pie',
+            data: {
+                labels: typeData.labels.map(label => label || "Uncategorized"),
+                datasets: [{
+                    data: typeData.values, // These are TotalAmount values per type
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.7)',
+                        'rgba(54, 162, 235, 0.7)',
+                        'rgba(255, 206, 86, 0.7)',
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(153, 102, 255, 0.7)',
+                        'rgba(255, 159, 64, 0.7)',
+                        'rgba(199, 199, 199, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(199, 199, 199, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed !== null) {
+                                    let value = context.parsed;
+                                    let total = context.dataset.data.reduce((acc, val) => acc + val, 0);
+                                    let percentage = ((value / total) * 100).toFixed(1);
+                                    label += '$' + value.toFixed(2) + ' (' + percentage + '%)'; // Show value and percentage
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Inventory Value Chart (Bar Chart for Value by Type)
+        const valueCtx = document.getElementById('inventoryValueChart').getContext('2d');
+
+        new Chart(valueCtx, {
+            type: 'bar',
+            data: {
+                labels: typeData.labels.map(label => label || "Uncategorized"),
+                datasets: [{
+                    label: 'Inventory Value',
+                    data: typeData.values, // These are TotalAmount values per type
+                    backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Value ($)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Inventory Type'
+                        }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += '$' + context.parsed.y.toFixed(2);
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        {% endif %}
+    });
+</script>
+{% endblock %}

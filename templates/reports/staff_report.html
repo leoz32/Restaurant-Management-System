@@ -1,0 +1,337 @@
+{% extends "base.html" %}
+
+{% block title %}Staff Performance Report{% endblock %}
+
+{% block styles %}
+<style>
+    .chart-container {
+        position: relative;
+        height: 300px;
+        margin-bottom: 20px;
+    }
+    .staff-card {
+        border-left: 4px solid;
+        min-height: 100px;
+    }
+    .sales-card {
+        border-color: #4CAF50;
+    }
+    .hours-card {
+        border-color: #2196F3;
+    }
+    .efficiency-card {
+        border-color: #FF9800;
+    }
+    .summary-value {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .summary-label {
+        color: #6c757d;
+        font-size: 14px;
+    }
+    .top-performer {
+        background-color: rgba(76, 175, 80, 0.1);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Staff Performance Report</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="{{ url_for('report_list') }}">Reports</a></li>
+        <li class="breadcrumb-item active">Staff Performance Report</li>
+    </ol>
+
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        <i class="fas fa-exclamation-triangle me-2"></i>{{ error }}
+    </div>
+    {% else %}
+
+    <!-- Staff Summary Cards -->
+    <div class="row">
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card staff-card sales-card">
+                <div class="card-body">
+                    <div class="summary-label">Total Sales</div>
+                    <div class="summary-value">${{ raw_data|map(attribute='TotalSales')|sum|round(2) }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card staff-card hours-card">
+                <div class="card-body">
+                    <div class="summary-label">Total Working Hours</div>
+                    <div class="summary-value">{{ secondary_data|map(attribute='TotalHours')|sum|round(1) }} Hours</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card staff-card efficiency-card">
+                <div class="card-body">
+                    <div class="summary-label">Average Sales Efficiency</div>
+                    {% set total_sales = raw_data|map(attribute='TotalSales')|sum %}
+                    {% set total_hours = secondary_data|map(attribute='TotalHours')|sum %}
+                    <div class="summary-value">
+                        ${{ (total_sales / total_hours)|round(2) if total_hours > 0 else 0 }}/Hour
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Staff Sales Chart -->
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar me-1"></i>
+                    Staff Sales Amount
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="staffSalesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar me-1"></i>
+                    Staff Working Hours
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="staffHoursChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Staff Sales Performance -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    Staff Sales Performance
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Staff Name</th>
+                                <th>Position</th>
+                                <th>Order Count</th>
+                                <th>Total Sales</th>
+                                <th>Average Order Value</th>
+                                <th>Sales Contribution (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in raw_data %}
+                            <tr {% if loop.index <= 3 %}class="top-performer"{% endif %}>
+                                <td>{{ row.StaffName }}</td>
+                                <td>{{ row.StaffPosition }}</td>
+                                <td>{{ row.OrderCount }}</td>
+                                <td>${{ row.TotalSales|round(2) }}</td>
+                                <td>${{ (row.TotalSales / row.OrderCount)|round(2) if row.OrderCount > 0 else 0 }}</td>
+                                {% set total_sales = raw_data|map(attribute='TotalSales')|sum %}
+                                <td>{{ ((row.TotalSales / total_sales) * 100)|round(1) if total_sales > 0 else 0 }}%</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr class="table-secondary">
+                                <th colspan="2">Total</th>
+                                <th>{{ raw_data|map(attribute='OrderCount')|sum }}</th>
+                                <th>${{ raw_data|map(attribute='TotalSales')|sum|round(2) }}</th>
+                                <th>${{ (raw_data|map(attribute='TotalSales')|sum / raw_data|map(attribute='OrderCount')|sum)|round(2) if raw_data|map(attribute='OrderCount')|sum > 0 else 0 }}</th>
+                                <th>100%</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div class="small text-muted mt-3">
+                        <i class="fas fa-info-circle me-1"></i>
+                        Rows highlighted in green indicate the top 3 performing staff based on sales.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Staff Working Hours -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-clock me-1"></i>
+                    Staff Working Hours
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Staff Name</th>
+                                <th>Working Hours</th>
+                                <th>Total Wage</th>
+                                <th>Average Hourly Wage</th>
+                                <th>Sales Efficiency (Per Hour)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in secondary_data %}
+                            <tr>
+                                <td>{{ row.StaffName }}</td>
+                                <td>{{ row.TotalHours|round(1) }} Hours</td>
+                                <td>${{ row.TotalWage|round(2) }}</td>
+                                <td>${{ (row.TotalWage / row.TotalHours)|round(2) if row.TotalHours > 0 else 0 }}</td>
+                                {% set staff_sales = namespace(value=0) %}
+                                {% for staff in raw_data %}
+                                    {% if staff.StaffName == row.StaffName %}
+                                        {% set staff_sales.value = staff.TotalSales %}
+                                    {% endif %}
+                                {% endfor %}
+                                <td>${{ (staff_sales.value / row.TotalHours)|round(2) if row.TotalHours > 0 else 0 }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr class="table-secondary">
+                                <th>Total</th>
+                                <th>{{ secondary_data|map(attribute='TotalHours')|sum|round(1) }} Hours</th>
+                                <th>${{ secondary_data|map(attribute='TotalWage')|sum|round(2) }}</th>
+                                <th>${{ (secondary_data|map(attribute='TotalWage')|sum / secondary_data|map(attribute='TotalHours')|sum)|round(2) if secondary_data|map(attribute='TotalHours')|sum > 0 else 0 }}</th>
+                                <th>${{ (raw_data|map(attribute='TotalSales')|sum / secondary_data|map(attribute='TotalHours')|sum)|round(2) if secondary_data|map(attribute='TotalHours')|sum > 0 else 0 }}</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        {% if not error %}
+        // Staff Sales Chart
+        const salesData = {{ chart_data|safe }};
+        const salesCtx = document.getElementById('staffSalesChart').getContext('2d');
+
+        new Chart(salesCtx, {
+            type: 'bar',
+            data: {
+                labels: salesData.labels,
+                datasets: [{
+                    label: 'Sales Amount',
+                    data: salesData.values,
+                    backgroundColor: 'rgba(75, 192, 192, 0.7)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Sales Amount ($)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Staff'
+                        }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += '$' + context.parsed.y.toFixed(2);
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Staff Hours Chart
+        const hoursData = {{ secondary_chart|safe }};
+        const hoursCtx = document.getElementById('staffHoursChart').getContext('2d');
+
+        new Chart(hoursCtx, {
+            type: 'bar',
+            data: {
+                labels: hoursData.labels,
+                datasets: [{
+                    label: 'Working Hours',
+                    data: hoursData.values,
+                    backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Working Hours (Hours)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Staff'
+                        }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += context.parsed.y.toFixed(1) + ' Hours'; // Append ' Hours' for clarity in tooltip
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        {% endif %}
+    });
+</script>
+{% endblock %}

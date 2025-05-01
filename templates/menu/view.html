@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ menu_item.MenuItemName }} - Menu Item Details{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Page Title and Action Buttons -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Menu Item Details</h1>
+        <div>
+            <a href="{{ url_for('menu_list') }}" class="btn btn-sm btn-secondary">
+                <i class="fas fa-arrow-left me-1"></i>Back to Menu
+            </a>
+            <a href="{{ url_for('edit_menu_item', menu_item_id=menu_item.MenuItemID) }}" class="btn btn-sm btn-primary">
+                <i class="fas fa-edit me-1"></i>Edit Menu Item
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Menu Item Basic Information -->
+        <div class="col-lg-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 bg-primary">
+                    <h6 class="m-0 font-weight-bold text-white">
+                        <i class="fas fa-utensils me-1"></i>Menu Item Information
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-lg-4 font-weight-bold text-primary">Menu Item ID:</div>
+                        <div class="col-lg-8">{{ menu_item.MenuItemID }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-4 font-weight-bold text-primary">Menu Item Name:</div>
+                        <div class="col-lg-8">{{ menu_item.MenuItemName }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-4 font-weight-bold text-primary">Price:</div>
+                        <div class="col-lg-8">￥{{ menu_item.Price }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-4 font-weight-bold text-primary">Category:</div>
+                        <div class="col-lg-8">{{ menu_item.Category }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-4 font-weight-bold text-primary">Status:</div>
+                        <div class="col-lg-8">
+                            {% if menu_item.State == 'Active' %}
+                            <span class="badge bg-success">Active</span>
+                            {% elif menu_item.State == 'Inactive' %}
+                            <span class="badge bg-secondary">Inactive</span>
+                            {% elif menu_item.State == 'Seasonal' %}
+                            <span class="badge bg-warning text-dark">Seasonal</span>
+                            {% else %}
+                            <span class="badge bg-info">{{ menu_item.State }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 font-weight-bold text-primary">Description:</div>
+                        <div class="col-lg-8">{{ menu_item.Description }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Item Image and Ingredient Preview -->
+        <div class="col-lg-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 bg-info">
+                    <h6 class="m-0 font-weight-bold text-white">
+                        <i class="fas fa-image me-1"></i>Menu Item Presentation
+                    </h6>
+                </div>
+                <div class="card-body text-center">
+                    <!-- Placeholder Image -->
+                    <img src="https://via.placeholder.com/400x300?text={{ menu_item.MenuItemName }}" class="img-fluid rounded mb-3" alt="{{ menu_item.MenuItemName }}">
+
+                    <div class="d-grid gap-2 mt-3">
+                        <a href="{{ url_for('new_order') }}?menu_item_id={{ menu_item.MenuItemID }}" class="btn btn-success">
+                            <i class="fas fa-cart-plus me-1"></i>Create Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recipe Details -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 bg-warning">
+            <h6 class="m-0 font-weight-bold text-dark">
+                <i class="fas fa-list me-1"></i>Recipe Information
+            </h6>
+        </div>
+        <div class="card-body">
+            {% if recipe_items %}
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Ingredient Name</th>
+                            <th>Ingredient Type</th>
+                            <th>Quantity Used</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in recipe_items %}
+                        <tr>
+                            <td>{{ item.RecipeID }}</td>
+                            <td>{{ item.InventoryName }}</td>
+                            <td>{{ item.InventoryType }}</td>
+                            <td>{{ item.QuantityUsed }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="text-center p-4">
+                <i class="fas fa-exclamation-circle fa-3x text-warning mb-3"></i>
+                <p>This menu item has no recipe information.</p>
+                <a href="{{ url_for('edit_menu_item', menu_item_id=menu_item.MenuItemID) }}" class="btn btn-sm btn-warning">
+                    <i class="fas fa-edit me-1"></i>Edit Menu Item to Add Recipe
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

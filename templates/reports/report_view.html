@@ -1,0 +1,607 @@
+{% extends "base.html" %}
+
+{% block title %}{{ report_name }}{% endblock %}
+
+{% block styles %}
+<style>
+    .data-card {
+        border-left: 4px solid #2196F3;
+    }
+    .data-card .card-body {
+        padding: 1rem;
+    }
+    .data-value {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #2196F3;
+    }
+    .data-label {
+        color: #6c757d;
+        font-size: 0.875rem;
+    }
+    .chart-container {
+        position: relative;
+        height: 300px;
+        margin-bottom: 1rem;
+    }
+    .secondary-title {
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+        border-bottom: 1px solid #e0e0e0;
+        padding-bottom: 0.5rem;
+    }
+    .trend-up {
+        color: #4CAF50;
+    }
+    .trend-down {
+        color: #F44336;
+    }
+    .table-hover tbody tr:hover {
+        background-color: rgba(33, 150, 243, 0.05);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-4">
+    <h1 class="mt-4">{{ report_name }}</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="{{ url_for('report_list') }}">Reports</a></li>
+        <li class="breadcrumb-item active">{{ report_name }}</li>
+    </ol>
+
+    {% if raw_data %}
+    <!-- Summary Cards -->
+    <div class="row mb-4">
+        {% if report_id == 'sales' %}
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card data-card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <i class="fas fa-dollar-sign fa-2x text-primary"></i>
+                            </div>
+                            <div class="col-9 text-end">
+                                <div class="data-value">
+                                    ${{ raw_data|map(attribute='TotalSales')|sum|round(2) }}
+                                </div>
+                                <div class="data-label">Total Sales</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card data-card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <i class="fas fa-shopping-cart fa-2x text-success"></i>
+                            </div>
+                            <div class="col-9 text-end">
+                                <div class="data-value">
+                                    {{ raw_data|map(attribute='OrderCount')|sum }}
+                                </div>
+                                <div class="data-label">Total Orders</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card data-card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <i class="fas fa-chart-pie fa-2x text-info"></i>
+                            </div>
+                            <div class="col-9 text-end">
+                                <div class="data-value">
+                                    {{ (raw_data|map(attribute='TotalSales')|sum / raw_data|map(attribute='OrderCount')|sum)|round(2) if raw_data|map(attribute='OrderCount')|sum > 0 else 0 }}
+                                </div>
+                                <div class="data-label">Average Order Value</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card data-card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <i class="fas fa-calendar-day fa-2x text-warning"></i>
+                            </div>
+                            <div class="col-9 text-end">
+                                <div class="data-value">
+                                    {{ raw_data|length }}
+                                </div>
+                                <div class="data-label">Time Periods</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% elif report_id == 'inventory' %}
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card data-card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <i class="fas fa-box fa-2x text-primary"></i>
+                            </div>
+                            <div class="col-9 text-end">
+                                <div class="data-value">
+                                    {{ raw_data|map(attribute='ItemCount')|sum }}
+                                </div>
+                                <div class="data-label">Total Items</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card data-card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <i class="fas fa-cubes fa-2x text-success"></i>
+                            </div>
+                            <div class="col-9 text-end">
+                                <div class="data-value">
+                                    {{ raw_data|map(attribute='TotalQuantity')|sum }}
+                                </div>
+                                <div class="data-label">Total Quantity</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card data-card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <i class="fas fa-dollar-sign fa-2x text-info"></i>
+                            </div>
+                            <div class="col-9 text-end">
+                                <div class="data-value">
+                                    ${{ raw_data|map(attribute='TotalAmount')|sum|round(2) }}
+                                </div>
+                                <div class="data-label">Total Value</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card data-card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <i class="fas fa-exclamation-triangle fa-2x text-warning"></i>
+                            </div>
+                            <div class="col-9 text-end">
+                                <div class="data-value">
+                                    {{ secondary_data|length if secondary_data else 0 }}
+                                </div>
+                                <div class="data-label">Low Stock Alerts</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% elif report_id == 'customer' %}
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card data-card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <i class="fas fa-users fa-2x text-primary"></i>
+                            </div>
+                            <div class="col-9 text-end">
+                                <div class="data-value">
+                                    {{ raw_data|map(attribute='CustomerCount')|sum }}
+                                </div>
+                                <div class="data-label">Total Customers</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card data-card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <i class="fas fa-user-check fa-2x text-success"></i>
+                            </div>
+                            <div class="col-9 text-end">
+                                <div class="data-value">
+                                    {{ secondary_data|length if secondary_data else 0 }}
+                                </div>
+                                <div class="data-label">Active Customers</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card data-card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <i class="fas fa-shopping-bag fa-2x text-info"></i>
+                            </div>
+                            <div class="col-9 text-end">
+                                <div class="data-value">
+                                    {{ (secondary_data|map(attribute='OrderCount')|sum / secondary_data|length)|round(1) if secondary_data and secondary_data|length > 0 else 0 }}
+                                </div>
+                                <div class="data-label">Avg Orders per Customer</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card data-card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <i class="fas fa-dollar-sign fa-2x text-warning"></i>
+                            </div>
+                            <div class="col-9 text-end">
+                                <div class="data-value">
+                                    ${{ (secondary_data|map(attribute='TotalSpent')|sum / secondary_data|length)|round(2) if secondary_data and secondary_data|length > 0 else 0 }}
+                                </div>
+                                <div class="data-label">Avg Customer Spend</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% elif report_id == 'staff' %}
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card data-card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <i class="fas fa-user-tie fa-2x text-primary"></i>
+                            </div>
+                            <div class="col-9 text-end">
+                                <div class="data-value">
+                                    {{ raw_data|length }}
+                                </div>
+                                <div class="data-label">Total Staff</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card data-card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <i class="fas fa-cash-register fa-2x text-success"></i>
+                            </div>
+                            <div class="col-9 text-end">
+                                <div class="data-value">
+                                    {{ raw_data|map(attribute='OrderCount')|sum }}
+                                </div>
+                                <div class="data-label">Total Orders Processed</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card data-card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <i class="fas fa-dollar-sign fa-2x text-info"></i>
+                            </div>
+                            <div class="col-9 text-end">
+                                <div class="data-value">
+                                    ${{ raw_data|map(attribute='TotalSales')|sum|round(2) }}
+                                </div>
+                                <div class="data-label">Total Sales</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card data-card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <i class="fas fa-clock fa-2x text-warning"></i>
+                            </div>
+                            <div class="col-9 text-end">
+                                <div class="data-value">
+                                    {{ work_data|map(attribute='TotalHours')|sum|round(1) if work_data else 0 }}
+                                </div>
+                                <div class="data-label">Total Hours Worked</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Primary Chart -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar me-1"></i>
+                    Primary Data Visualization
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="primaryChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if secondary_chart %}
+    <!-- Secondary Chart -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-pie me-1"></i>
+                    Secondary Analysis
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="secondaryChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Data Tables -->
+    <div class="row">
+<!-- Primary Data Table -->
+<div class="col-xl-{% if secondary_data %}6{% else %}12{% endif %}">
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            {{ report_name }} Data
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-hover">
+                <thead class="table-light">
+                    <tr>
+                        {% if report_id == 'sales' %}
+                            <th>Month</th>
+                            <th>OrderCount</th>
+                            <th>TotalSales</th>
+                        {% elif report_id == 'inventory' %}
+                            <th>InventoryType</th>
+                            <th>ItemCount</th>
+                            <th>TotalQuantity</th>
+                            <th>TotalValue</th>
+                        {% elif report_id == 'customer' %}
+                            <th>CustomerType</th>
+                            <th>CustomerCount</th>
+                        {% elif report_id == 'staff' %}
+                            <th>StaffID</th>
+                            <th>StaffName</th>
+                            <th>StaffPosition</th>
+                            <th>OrderCount</th>
+                            <th>TotalSales</th>
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in raw_data %}
+                    <tr>
+                        {% if report_id == 'sales' %}
+                            <td>{{ row.Month }}</td>
+                            <td>{{ row.OrderCount }}</td>
+                            <td>${{ row.TotalSales|round(2) }}</td>
+                        {% elif report_id == 'inventory' %}
+                            <td>{{ row.InventoryType }}</td>
+                            <td>{{ row.ItemCount }}</td>
+                            <td>{{ row.TotalQuantity }}</td>
+                            <td>${{ row.TotalAmount|round(2) }}</td>
+                        {% elif report_id == 'customer' %}
+                            <td>{{ row.CustomerType }}</td>
+                            <td>{{ row.CustomerCount }}</td>
+                        {% elif report_id == 'staff' %}
+                            <td>{{ row.StaffID }}</td>
+                            <td>{{ row.StaffName }}</td>
+                            <td>{{ row.StaffPosition }}</td>
+                            <td>{{ row.OrderCount }}</td>
+                            <td>${{ row.TotalSales|round(2) }}</td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Secondary Data Table -->
+{% if secondary_data %}
+<div class="col-xl-6">
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            {{ secondary_title if secondary_title else 'Additional Data' }}
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-hover">
+                <thead class="table-light">
+                    <tr>
+                        {% if report_id == 'sales' %}
+                            <th>Category</th>
+                            <th>OrderCount</th>
+                            <th>TotalSales</th>
+                        {% elif report_id == 'inventory' %}
+                            <th>InventoryName</th>
+                            <th>InventoryType</th>
+                            <th>InventoryQuantity</th>
+                            <th>MinimumQuantity</th>
+                            <th>SupplierName</th>
+                            <th>ContactEmail</th>
+                        {% elif report_id == 'customer' %}
+                            <th>CustomerID</th>
+                            <th>CustomerName</th>
+                            <th>OrderCount</th>
+                            <th>TotalSpent</th>
+                            <th>LastOrderDate</th>
+                        {% elif report_id == 'staff' %}
+                            <th>StaffName</th>
+                            <th>TotalHours</th>
+                            <th>TotalWage</th>
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in secondary_data %}
+                    <tr>
+                        {% if report_id == 'sales' %}
+                            <td>{{ row.Category }}</td>
+                            <td>{{ row.OrderCount }}</td>
+                            <td>${{ row.TotalSales|round(2) }}</td>
+                        {% elif report_id == 'inventory' %}
+                            <td>{{ row.InventoryName }}</td>
+                            <td>{{ row.InventoryType }}</td>
+                            <td>{{ row.InventoryQuantity }}</td>
+                            <td>{{ row.MinimumQuantity }}</td>
+                            <td>{{ row.SupplierName }}</td>
+                            <td>{{ row.ContactEmail }}</td>
+                        {% elif report_id == 'customer' %}
+                            <td>{{ row.CustomerID }}</td>
+                            <td>{{ row.CustomerName }}</td>
+                            <td>{{ row.OrderCount }}</td>
+                            <td>${{ row.TotalSpent|round(2) }}</td>
+                            <td>{{ row.LastOrderDate }}</td>
+                        {% elif report_id == 'staff' %}
+                            <td>{{ row.StaffName }}</td>
+                            <td>{{ row.TotalHours }}</td>
+                            <td>${{ row.TotalWage|round(2) }}</td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endif %}
+    </div>
+    {% else %}
+    <div class="alert alert-info">
+        <i class="fas fa-info-circle me-2"></i> No data available for this report.
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        {% if chart_data %}
+        const chartData = {{ chart_data|safe }};
+        const primaryChart = document.getElementById('primaryChart');
+
+        if (primaryChart) {
+            new Chart(primaryChart, {
+                type: '{{ chart_type }}',
+                data: {
+                    labels: chartData.labels,
+                    datasets: [{
+                        label: '{{ report_name }}',
+                        data: chartData.values,
+                        backgroundColor: [
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)',
+                            'rgba(199, 199, 199, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)',
+                            'rgba(159, 159, 159, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        {% if secondary_chart %}
+        const secondaryChartData = {{ secondary_chart|safe }};
+        const secondaryChart = document.getElementById('secondaryChart');
+
+        if (secondaryChart) {
+            new Chart(secondaryChart, {
+                type: '{{ secondary_chart_type }}',
+                data: {
+                    labels: secondaryChartData.labels,
+                    datasets: [{
+                        label: '{{ secondary_title if secondary_title else "Additional Data" }}',
+                        data: secondaryChartData.values,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)',
+                            'rgba(199, 199, 199, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)',
+                            'rgba(159, 159, 159, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+        }
+        {% endif %}
+        {% endif %}
+    });
+</script>
+{% endblock %}

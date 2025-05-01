@@ -1,0 +1,436 @@
+{% extends "base.html" %}
+
+{% block title %}季节性分析{% endblock %}
+
+{% block styles %}
+<style>
+    .chart-container {
+        position: relative;
+        height: 300px;
+        margin-bottom: 20px;
+    }
+    .seasonal-card {
+        border-left: 4px solid;
+        min-height: 100px;
+    }
+    .peak-card {
+        border-color: #4CAF50;
+    }
+    .low-card {
+        border-color: #F44336;
+    }
+    .avg-card {
+        border-color: #2196F3;
+    }
+    .summary-value {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .summary-label {
+        color: #6c757d;
+        font-size: 14px;
+    }
+    .peak-month {
+        background-color: rgba(76, 175, 80, 0.1);
+    }
+    .low-month {
+        background-color: rgba(244, 67, 54, 0.1);
+    }
+    .peak-day {
+        background-color: rgba(76, 175, 80, 0.1);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-4">
+    <h1 class="mt-4">季节性分析</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="{{ url_for('report_list') }}">Reports</a></li>
+        <li class="breadcrumb-item active">季节性分析</li>
+    </ol>
+    
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        <i class="fas fa-exclamation-triangle me-2"></i>{{ error }}
+    </div>
+    {% else %}
+    
+    <!-- Seasonal Summary Cards -->
+    {% set peak_month = {'month': 1, 'sales': 0} %}
+    {% set low_month = {'month': 1, 'sales': 999999999} %}
+    {% for row in raw_data %}
+        {% if row.TotalSales > peak_month.sales %}
+            {% set peak_month = {'month': row.Month, 'sales': row.TotalSales} %}
+        {% endif %}
+        {% if row.TotalSales < low_month.sales %}
+            {% set low_month = {'month': row.Month, 'sales': row.TotalSales} %}
+        {% endif %}
+    {% endfor %}
+    
+    {% set month_names = ['', '一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'] %}
+    
+    <div class="row">
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card seasonal-card peak-card">
+                <div class="card-body">
+                    <div class="summary-label">销售高峰月</div>
+                    <div class="summary-value">{{ month_names[peak_month.month] }}</div>
+                    <div class="mt-2">
+                        <span class="badge bg-success">${{ peak_month.sales|round(2) }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card seasonal-card low-card">
+                <div class="card-body">
+                    <div class="summary-label">销售低谷月</div>
+                    <div class="summary-value">{{ month_names[low_month.month] }}</div>
+                    <div class="mt-2">
+                        <span class="badge bg-danger">${{ low_month.sales|round(2) }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card seasonal-card avg-card">
+                <div class="card-body">
+                    <div class="summary-label">季节性波动</div>
+                    <div class="summary-value">{{ ((peak_month.sales - low_month.sales) / ((peak_month.sales + low_month.sales) / 2) * 100)|round(1) if (peak_month.sales + low_month.sales) > 0 else 0 }}%</div>
+                    <div class="mt-2">
+                        <span class="badge bg-info">高峰与低谷差异</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Monthly Trend Chart -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-line me-1"></i>
+                    月度销售趋势
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="monthlyTrendChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Weekday Analysis Chart -->
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar me-1"></i>
+                    按星期分析
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="weekdayChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-user-friends me-1"></i>
+                    客户到访分析
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="customerVisitChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Monthly Data Table -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    月度销售详情
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>月份</th>
+                                <th>订单数量</th>
+                                <th>销售额</th>
+                                <th>独立客户数</th>
+                                <th>平均订单金额</th>
+                                <th>平均客户消费</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in raw_data %}
+                            <tr class="{% if row.Month == peak_month.month %}peak-month{% elif row.Month == low_month.month %}low-month{% endif %}">
+                                <td>{{ month_names[row.Month] }}</td>
+                                <td>{{ row.OrderCount }}</td>
+                                <td>${{ row.TotalSales|round(2) }}</td>
+                                <td>{{ row.UniqueCustomers }}</td>
+                                <td>${{ (row.TotalSales / row.OrderCount)|round(2) if row.OrderCount > 0 else 0 }}</td>
+                                <td>${{ (row.TotalSales / row.UniqueCustomers)|round(2) if row.UniqueCustomers > 0 else 0 }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr class="table-secondary">
+                                <th>总计/平均</th>
+                                <th>{{ raw_data|map(attribute='OrderCount')|sum }}</th>
+                                <th>${{ raw_data|map(attribute='TotalSales')|sum|round(2) }}</th>
+                                <th>{{ raw_data|map(attribute='UniqueCustomers')|max }}</th>
+                                <th>${{ (raw_data|map(attribute='TotalSales')|sum / raw_data|map(attribute='OrderCount')|sum)|round(2) if raw_data|map(attribute='OrderCount')|sum > 0 else 0 }}</th>
+                                <th>${{ (raw_data|map(attribute='TotalSales')|sum / raw_data|map(attribute='UniqueCustomers')|sum)|round(2) if raw_data|map(attribute='UniqueCustomers')|sum > 0 else 0 }}</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div class="small text-muted mt-3">
+                        <i class="fas fa-info-circle me-1"></i>
+                        绿色背景表示销售高峰月，红色背景表示销售低谷月。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Weekday Data Table -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-calendar-alt me-1"></i>
+                    按星期分析详情
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>星期</th>
+                                <th>订单数量</th>
+                                <th>销售额</th>
+                                <th>平均订单金额</th>
+                                <th>占总销售比例</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% set peak_day = {'weekday': '', 'sales': 0} %}
+                            {% for row in secondary_data %}
+                                {% if row.TotalSales > peak_day.sales %}
+                                    {% set peak_day = {'weekday': row.WeekDayName, 'sales': row.TotalSales} %}
+                                {% endif %}
+                            {% endfor %}
+                            
+                            {% for row in secondary_data %}
+                            <tr class="{% if row.WeekDayName == peak_day.weekday %}peak-day{% endif %}">
+                                <td>{{ row.WeekDayName }}</td>
+                                <td>{{ row.OrderCount }}</td>
+                                <td>${{ row.TotalSales|round(2) }}</td>
+                                <td>${{ (row.TotalSales / row.OrderCount)|round(2) if row.OrderCount > 0 else 0 }}</td>
+                                {% set total_sales = secondary_data|map(attribute='TotalSales')|sum %}
+                                <td>{{ ((row.TotalSales / total_sales) * 100)|round(1) if total_sales > 0 else 0 }}%</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr class="table-secondary">
+                                <th>总计</th>
+                                <th>{{ secondary_data|map(attribute='OrderCount')|sum }}</th>
+                                <th>${{ secondary_data|map(attribute='TotalSales')|sum|round(2) }}</th>
+                                <th>${{ (secondary_data|map(attribute='TotalSales')|sum / secondary_data|map(attribute='OrderCount')|sum)|round(2) if secondary_data|map(attribute='OrderCount')|sum > 0 else 0 }}</th>
+                                <th>100%</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div class="small text-muted mt-3">
+                        <i class="fas fa-info-circle me-1"></i>
+                        绿色背景表示每周销售最高的日子。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        {% if not error %}
+        // Monthly Trend Chart
+        const monthlyData = {{ chart_data|safe }};
+        const monthlyCtx = document.getElementById('monthlyTrendChart').getContext('2d');
+        
+        // Map month numbers to names
+        const monthNames = ['', '一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
+        const monthLabels = monthlyData.labels.map(month => monthNames[parseInt(month)]);
+        
+        new Chart(monthlyCtx, {
+            type: 'line',
+            data: {
+                labels: monthLabels,
+                datasets: [{
+                    label: '月度销售额',
+                    data: monthlyData.values,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2,
+                    tension: 0.1,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: '销售额 ($)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: '月份'
+                        }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += '$' + context.parsed.y.toFixed(2);
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Weekday Chart
+        const weekdayData = {{ secondary_chart|safe }};
+        const weekdayCtx = document.getElementById('weekdayChart').getContext('2d');
+        
+        new Chart(weekdayCtx, {
+            type: 'bar',
+            data: {
+                labels: weekdayData.labels,
+                datasets: [{
+                    label: '日销售额',
+                    data: weekdayData.values,
+                    backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: '销售额 ($)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: '星期'
+                        }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += '$' + context.parsed.y.toFixed(2);
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Customer Visit Chart
+        const customerCtx = document.getElementById('customerVisitChart').getContext('2d');
+        
+        // Extract customer data from raw data
+        const monthLabels2 = monthlyData.labels.map(month => monthNames[parseInt(month)]);
+        const customerData = [
+            {% for row in raw_data %}
+                {{ row.UniqueCustomers }},
+            {% endfor %}
+        ];
+        
+        new Chart(customerCtx, {
+            type: 'line',
+            data: {
+                labels: monthLabels2,
+                datasets: [{
+                    label: '独立客户数',
+                    data: customerData,
+                    backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                    borderColor: 'rgba(255, 159, 64, 1)',
+                    borderWidth: 2,
+                    tension: 0.1,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: '客户数量'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: '月份'
+                        }
+                    }
+                }
+            }
+        });
+        {% endif %}
+    });
+</script>
+{% endblock %}
